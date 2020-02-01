@@ -9,7 +9,7 @@ public class Room : MonoBehaviour
     [HideInInspector]
     public bool isExit;
     [HideInInspector]
-    public Vector2Int position;
+    public Vector2Int position = Vector2Int.zero;
     [SerializeField]
     RoomType type;
 

@@ -9,8 +9,7 @@ using UnityEngine.Tilemaps;
 public class DungeonFactory : MonoBehaviour
 {
     static DungeonFactory instance;
-    [SerializeField]
-    public Vector2Int roomMaxDimensions {get;}
+    public Vector2Int roomMaxDimensions;
     [SerializeField]
     int roomsNumber;
     List<Vector2Int> availableSpaces;

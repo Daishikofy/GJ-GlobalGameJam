@@ -40,6 +40,7 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
     {
         Vector2Int posMin = GetComponentInParent<Room>().position;
         Vector2Int dimensions = DungeonFactory.Instance.roomMaxDimensions;
+        Debug.Log(dimensions);
         roomArea = new RectInt(posMin, dimensions);
 
         myRigidbody = GetComponent<Rigidbody2D>();
@@ -47,9 +48,7 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
 
     // Update is called once per frame
     private void Update()
-    {
-        float step = speed * Time.deltaTime;
-        myRigidbody.MovePosition(Vector2.MoveTowards(myRigidbody.transform.position, patrolPoint, step));
+    {          
         if (isChasing) return;
         timeSincePatrol += Time.deltaTime;
         if (timeSincePatrol >= patrolCadence)
@@ -58,6 +57,11 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
             timeSincePatrol = 0;
         }
 
+    }
+    private void FixedUpdate()
+    {
+        float step = speed * Time.deltaTime;
+        myRigidbody.MovePosition(Vector2.MoveTowards(myRigidbody.transform.position, patrolPoint, step));
     }
     public void onDamage(int damage)
     {
@@ -125,5 +129,14 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
         float y = Random.Range(roomArea.yMin, roomArea.yMax);
 
         return new Vector2(x, y);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        { }
+        else
+            patrolPoint = randomPatrolPoint();
+            timeSincePatrol = 0;
     }
 }

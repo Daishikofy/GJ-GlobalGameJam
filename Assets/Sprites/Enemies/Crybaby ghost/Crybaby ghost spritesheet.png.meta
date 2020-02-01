@@ -1,7 +1,31 @@
 fileFormatVersion: 2
 guid: 77c6189af6ea6d14d9c2b35cef339a6d
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 8290568039852882727
+    second: Crybaby ghost spritesheet_0
+  - first:
+      213: -7324029373749532110
+    second: Crybaby ghost spritesheet_1
+  - first:
+      213: -60875507475379370
+    second: Crybaby ghost spritesheet_2
+  - first:
+      213: 5612051014838393658
+    second: Crybaby ghost spritesheet_3
+  - first:
+      213: 3301483761904820484
+    second: Crybaby ghost spritesheet_4
+  - first:
+      213: -8639884913706247396
+    second: Crybaby ghost spritesheet_5
+  - first:
+      213: 5372837941971505676
+    second: Crybaby ghost spritesheet_6
+  - first:
+      213: 9104377755248691003
+    second: Crybaby ghost spritesheet_7
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,7 +64,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -70,9 +94,213 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Crybaby ghost spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 199
+        width: 114.75
+        height: 199
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d7dad1191dadf144a71510102d74abb
+      internalID: 8290568039852882727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crybaby ghost spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 199
+        width: 114.75
+        height: 199
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 005b901eed7452a4a8869e999db2716b
+      internalID: -7324029373749532110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crybaby ghost spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 199
+        width: 114.75
+        height: 199
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3ceab16c84b79b4c927436bc18cf3f2
+      internalID: -60875507475379370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crybaby ghost spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 199
+        width: 114.75
+        height: 199
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bbea85ec691af0438c57b644064cec7
+      internalID: 5612051014838393658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crybaby ghost spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 114.75
+        height: 199
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21ccfeab11f07fc40a1bce03ebcc2c66
+      internalID: 3301483761904820484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crybaby ghost spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 0
+        width: 114.75
+        height: 199
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d1da68a5e4d93e4891ce5b013d9f47d
+      internalID: -8639884913706247396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crybaby ghost spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 0
+        width: 114.75
+        height: 199
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbd5b4bf333e92943b9355eb550a4aa6
+      internalID: 5372837941971505676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crybaby ghost spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 0
+        width: 114.75
+        height: 199
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c009eab0447038d43bbbada277ae2c6d
+      internalID: 9104377755248691003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
