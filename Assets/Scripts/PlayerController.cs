@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿#pragma warning disable 0649
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,12 +7,24 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     private float speed;
+    [SerializeField]
+    private int attackPower;
+    [SerializeField]
+    private int healPower;
+    [SerializeField]
+    private int healLauchLevel;
+
+    [SerializeField]
+    private float healRadius;
+    [SerializeField]
+    private BoxCollider2D boxCollider;
+
+    private int healMeter;
 
     private PlayerInput playerInput;
     private Rigidbody2D rigidbody2D;
     private Vector2 playerMovement;
-    [HideInInspector]
-    public Vector2 playerDirection;
+    private Vector2 playerDirection;
     bool isMoving = false;
     Animator animator;
 
@@ -23,6 +36,8 @@ public class PlayerController : MonoBehaviour
         playerInput.Enable();
         playerInput.Player.Horizontal.performed += context => horizontal(context.ReadValue<float>());
         playerInput.Player.Vertical.performed += context => vertical(context.ReadValue<float>());
+        playerInput.Player.Attack1.performed += context => startHealing();
+        playerInput.Player.Attack2.performed += context => startAttacking();
         rigidbody2D = GetComponent<Rigidbody2D>();
 
         playerDirection = Vector2.down;
@@ -74,4 +89,46 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("X", playerDirection.x);
         animator.SetFloat("Y", playerDirection.y);
     }
+
+    private void startHealing()
+    {
+        if (healMeter < healLauchLevel) return;
+
+        healMeter -= healLauchLevel;
+        //ANIMATION : Start healing animation, in the middle, activates collider and hurt ennemies
+        //SOUND : Healing attack sound
+        
+    }
+
+    private void healing()
+    {
+        Collider2D[] ennemies = Physics2D.OverlapCircleAll(this.transform.position, healRadius, 8);
+        Debug.Log("There are " + ennemies.Length + " ennemies in the circle");
+        foreach (var ennemy in ennemies)
+        {
+            ennemy.GetComponent<IDamageable>().onDamage(attackPower);
+        }
+    }
+
+    private void startAttacking()
+    {
+        //ANIMATION : Start attack animation
+        //SOUND : Attacking attack sound
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Ennemy")) return;
+        if (collision.IsTouching(boxCollider))//The fist hit the ennemy
+        {
+            collision.GetComponent<IDamageable>().onDamage(attackPower);
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(this.transform.position, healRadius);
+    }
+
 }
