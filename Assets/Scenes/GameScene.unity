@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ad76b8d808f214396fbe4e127393b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomMaxDimensions: {x: 5, y: 4}
+  roomMaxDimensions: {x: 15, y: 11}
   roomsNumber: 10
   upWallMap: {fileID: 676023338}
   downWallMap: {fileID: 1938129213}
