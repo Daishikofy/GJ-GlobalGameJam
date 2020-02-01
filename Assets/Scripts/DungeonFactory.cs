@@ -229,15 +229,36 @@ public class DungeonFactory : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (roomsSpaces == null) return;
+        
+
+        Gizmos.color = Color.red;
+        var position = new Vector3(0, 0, 0);
+
+        Vector3 dLeft = position;
+        Vector3 dRight = (position + (Vector3.right * roomMaxDimensions.x));
+        Vector3 uLeft = (position + (Vector3.up * roomMaxDimensions.y));
+        Vector3 uRight = ((position + (Vector3.up * roomMaxDimensions.y)) + (Vector3.right * roomMaxDimensions.x));
+
+        Gizmos.DrawLine(dLeft, dRight);
+        Gizmos.DrawLine(dLeft, uLeft);
+        Gizmos.DrawLine(uLeft, uRight);
+        Gizmos.DrawLine(dRight, uRight);
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(dLeft, 0.1f);
+        Gizmos.DrawSphere(dRight, 0.1f);
+        Gizmos.DrawSphere(uLeft, 0.1f);
+        Gizmos.DrawSphere(dRight, 0.1f);
+
         foreach (var room in roomsSpaces)
         {
-            Gizmos.color = Color.red;
-            var position = new Vector3(room.x, room.y, 0);
+            Gizmos.color = Color.blue;
+            position = new Vector3(room.x, room.y, 0);
             Gizmos.DrawLine(position, (position + (Vector3.right * roomMaxDimensions.x)));
             Gizmos.DrawLine(position, (position + (Vector3.up * roomMaxDimensions.y)));
             Gizmos.DrawLine((position + (Vector3.up * roomMaxDimensions.y)), ((position + (Vector3.up * roomMaxDimensions.y)) + (Vector3.right * roomMaxDimensions.x)));
             Gizmos.DrawLine((position + (Vector3.right * roomMaxDimensions.x)), ((position + (Vector3.up * roomMaxDimensions.y)) + (Vector3.right * roomMaxDimensions.x)));
         }
+        
     }
 } 
