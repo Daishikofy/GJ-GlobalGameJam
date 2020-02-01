@@ -101,14 +101,16 @@ public class DungeonFactory : MonoBehaviour
             GameObject room = Instantiate(rooms[i], conversion, Quaternion.identity, this.transform);
             room.GetComponent<Room>().position = roomsSpaces[i];
             Tilemap[] tilemaps = room.GetComponentsInChildren<Tilemap>();
+            /*
             foreach (var tilemap in tilemaps)
             {
                 Tilemap currentTilemap = selectCurrentMap(tilemap.name, room.name);
                 copyRoom(roomsSpaces[i], tilemap, currentTilemap);
                 Destroy(tilemap.gameObject);
-            }
+            }*/
         }
         bool loop = true;
+        
         while (loop)
         {
             int randomExit = Random.Range(0, rooms.Length);
@@ -117,11 +119,11 @@ public class DungeonFactory : MonoBehaviour
             {
                 room.isExit = true;
                 //TODO : Instanciate exit in this room
-                //Game manager must know this room is an exit
+                GameManager.Instance.levelEndRoom = rooms[randomExit];
                 loop = false;
             }
         }
-
+        /*
         loop = true;
         while (loop)
         {
@@ -132,7 +134,7 @@ public class DungeonFactory : MonoBehaviour
                 room.isEntry = true;
                 //TODO : Game manager must know this room is an entry
             }
-        }
+        }*/
 
         //TODO : Ask game manager if it should instanciate a special room
     }
