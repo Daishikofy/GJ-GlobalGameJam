@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField]
     float healRadius;
     int karma;
+
+    int currentKarmaLevel;
     
     PlayerInput playerInput;
     Rigidbody2D myRigidbody;
@@ -47,6 +49,8 @@ public class PlayerController : MonoBehaviour, IDamageable
         set {
             karma = value;
             updateKarma.Invoke(karma);
+            if (karma % 20 != currentKarmaLevel)
+                changeKarmaLevel();
             }
     }
 
@@ -204,6 +208,21 @@ public class PlayerController : MonoBehaviour, IDamageable
         //SOUND : Death sound
         //MUSIC : Death music transition
         updateStatus.Invoke();
+    }
+
+    private void changeKarmaLevel()
+    {
+        int newKarmaLevel = Mathf.Abs(karma) % 20;
+        if (newKarmaLevel > currentKarmaLevel)
+        {
+            //ANIMATION: Power up
+            //SOUND: power up
+        }
+        else if (newKarmaLevel < currentKarmaLevel)
+        {
+            //ANIMATION: Power down
+            //SOUND: power down
+        }
     }
 
     private void OnDrawGizmos()
