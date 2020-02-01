@@ -36,10 +36,10 @@ public class PlayerController : MonoBehaviour, IDamageable
     bool isMoving = false;
     Animator animator;
 
-    IntEvent updateKarma;
-    IntEvent updateLife;
-    IntEvent updateHealMeter;
-    UnityEvent updateStatus;
+    public IntEvent updateKarma;
+    public IntEvent updateLife;
+    public IntEvent updateHealMeter;
+    public UnityEvent updateStatus;
 
     //Getters ans setters here
     #region Getters&Setters
@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     public int Life {
         get { return currentLife; }
         set {
-            Life = value;
+            currentLife = value;
             if (currentLife > maxLife) currentLife = maxLife;
             if (currentLife < 0)
             {
@@ -96,6 +96,9 @@ public class PlayerController : MonoBehaviour, IDamageable
         // animator.SetFloat("X", playerDirection.x);
         // animator.SetFloat("Y", playerDirection.y);
         attackCollider.isTrigger = true;
+        Life = maxLife;
+        Karma = 0;
+        HealMeter = 0;
     }
 
     private void Update()

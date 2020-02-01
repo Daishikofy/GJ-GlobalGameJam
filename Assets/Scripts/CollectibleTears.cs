@@ -7,8 +7,19 @@ public class CollectibleTears : CollectibleItem
 {
     [SerializeField]
     int value;
+
+    [SerializeField]
+    float timeBeforeVanishing;
+    float currentTime;
     protected override void onCollecting(PlayerController player)
     {
         player.HealMeter = value;
+    }
+
+    private void Update()
+    {
+        if (currentTime >= timeBeforeVanishing)
+            Destroy(this.gameObject);
+        currentTime += Time.deltaTime;
     }
 }

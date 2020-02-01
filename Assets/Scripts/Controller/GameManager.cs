@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject levelEndRoom;
     int currentLevel;
     [HideInInspector]
-    IntEvent updateLevel;
+    public IntEvent updateLevel;
 
     public int CurrentLevel {
         get { return currentLevel; }
