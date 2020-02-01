@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     bool isMoving = false;
     Animator animator;
 
+    int karma { get; }
+
     public int HealMeter
     {
         get { return healMeter; }
@@ -34,7 +36,7 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
         playerInput = new PlayerInput();
         playerInput.Enable();
         playerInput.Player.Horizontal.performed += context => horizontal(context.ReadValue<float>());
@@ -44,17 +46,17 @@ public class PlayerController : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
 
         playerDirection = Vector2.down;
-        animator.SetFloat("X", playerDirection.x);
-        animator.SetFloat("Y", playerDirection.y);
+       // animator.SetFloat("X", playerDirection.x);
+       // animator.SetFloat("Y", playerDirection.y);
         HealMeter = 3;
     }
 
     private void Update()
     {
-        if (playerMovement == Vector2.zero)
+       /* if (playerMovement == Vector2.zero)
             animator.SetBool("isMoving", false);
         else
-            animator.SetBool("isMoving", true);
+            animator.SetBool("isMoving", true);*/
     }
 
     private void FixedUpdate()
@@ -74,8 +76,8 @@ public class PlayerController : MonoBehaviour
         if (playerMovement.x != 0 || playerMovement.y != 0)
             playerDirection = playerMovement;
         playerMovement *= speed;
-        animator.SetFloat("X", playerDirection.x);
-        animator.SetFloat("Y", playerDirection.y);
+       // animator.SetFloat("X", playerDirection.x);
+        //animator.SetFloat("Y", playerDirection.y);
     }
 
     private void vertical(float value)
@@ -90,8 +92,8 @@ public class PlayerController : MonoBehaviour
         if (playerMovement.x != 0 || playerMovement.y != 0)
             playerDirection = playerMovement;
         playerMovement *= speed;
-        animator.SetFloat("X", playerDirection.x);
-        animator.SetFloat("Y", playerDirection.y);
+        //animator.SetFloat("X", playerDirection.x);
+        //animator.SetFloat("Y", playerDirection.y);
     }
 
     private void startHealing()
@@ -104,20 +106,32 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    private void startAttacking()
+    {
+        //ANIMATION : Start attack animation
+        //SOUND : Attacking attack sound
+    }
+
     private void healing()
     {
         Collider2D[] ennemies = Physics2D.OverlapCircleAll(this.transform.position, healRadius, 8);
         Debug.Log("There are " + ennemies.Length + " ennemies in the circle");
         foreach (var ennemy in ennemies)
         {
-            ennemy.GetComponent<IDamageable>().onDamage(attackPower);
+            ennemy.GetComponent<IReaparable>().onRepair(healPower);
+            var controller = ennemy.GetComponent<EnnemyController>();
+            controller.isFree.RemoveAllListeners();
+            controller.isFree.AddListener(savedEnnemy);
         }
     }
 
-    private void startAttacking()
+    private void killedEnnemy()
     {
-        //ANIMATION : Start attack animation
-        //SOUND : Attacking attack sound
+        karma--;
+    }
+    private void savedEnnemy()
+    {
+        karma++;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -126,6 +140,9 @@ public class PlayerController : MonoBehaviour
         if (collision.IsTouching(boxCollider))//The fist hit the ennemy
         {
             collision.GetComponent<IDamageable>().onDamage(attackPower);
+            var controller = collision.GetComponent<EnnemyController>();
+            controller.isDead.RemoveAllListeners();
+            controller.isDead.AddListener(killedEnnemy);
         }
     }
 

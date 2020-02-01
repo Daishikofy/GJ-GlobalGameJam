@@ -1,7 +1,6 @@
 ﻿#pragma warning disable 0649
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
 {
@@ -29,6 +28,11 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
 
     float timeSincePatrol;
     bool isChasing = false;
+
+    [HideInInspector]
+    public UnityEvent isDead;
+    [HideInInspector]
+    public UnityEvent isFree;
 
     public int LifePoints
     {
