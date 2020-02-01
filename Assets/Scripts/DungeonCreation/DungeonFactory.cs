@@ -8,8 +8,9 @@ using UnityEngine.Tilemaps;
 
 public class DungeonFactory : MonoBehaviour
 {
+    static DungeonFactory instance;
     [SerializeField]
-    Vector2Int roomMaxDimensions;
+    public Vector2Int roomMaxDimensions {get;}
     [SerializeField]
     int roomsNumber;
     List<Vector2Int> availableSpaces;
@@ -24,6 +25,15 @@ public class DungeonFactory : MonoBehaviour
     [SerializeField]
     Tilemap floorMap;
 
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+            Destroy(this.gameObject);
+        else
+            instance = this;
+    }
+
+    public static DungeonFactory Instance { get { return instance; } }
     public void generateDungeon(int roomsNumber)
     {
         selectRooms(roomsNumber);
@@ -89,7 +99,7 @@ public class DungeonFactory : MonoBehaviour
             conversion.y = roomsSpaces[i].y;
             //TODO : Check this transform
             GameObject room = Instantiate(rooms[i], conversion, Quaternion.identity, this.transform);
-
+            room.GetComponent<Room>().position = roomsSpaces[i];
             Tilemap[] tilemaps = room.GetComponentsInChildren<Tilemap>();
             foreach (var tilemap in tilemaps)
             {

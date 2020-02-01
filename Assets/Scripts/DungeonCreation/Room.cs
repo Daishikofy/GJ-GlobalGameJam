@@ -8,6 +8,8 @@ public class Room : MonoBehaviour
     public bool isEntry;
     [HideInInspector]
     public bool isExit;
+    [HideInInspector]
+    public Vector2Int position;
     [SerializeField]
     RoomType type;
 
