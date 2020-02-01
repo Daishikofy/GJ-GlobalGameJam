@@ -13,20 +13,23 @@ public class PlayerController : MonoBehaviour
     private int healPower;
     [SerializeField]
     private int healLauchLevel;
-
+    private int healMeter;
     [SerializeField]
     private float healRadius;
     [SerializeField]
     private BoxCollider2D boxCollider;
-
-    private int healMeter;
-
     private PlayerInput playerInput;
-    private Rigidbody2D rigidbody2D;
+    private Rigidbody2D myRigidbody;
     private Vector2 playerMovement;
     private Vector2 playerDirection;
     bool isMoving = false;
     Animator animator;
+
+    public int HealMeter
+    {
+        get { return healMeter; }
+        set { healMeter = value; } 
+    }
 
     // Use this for initialization
     void Start()
@@ -38,11 +41,12 @@ public class PlayerController : MonoBehaviour
         playerInput.Player.Vertical.performed += context => vertical(context.ReadValue<float>());
         playerInput.Player.Attack1.performed += context => startHealing();
         playerInput.Player.Attack2.performed += context => startAttacking();
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        myRigidbody = GetComponent<Rigidbody2D>();
 
         playerDirection = Vector2.down;
         animator.SetFloat("X", playerDirection.x);
         animator.SetFloat("Y", playerDirection.y);
+        HealMeter = 3;
     }
 
     private void Update()
@@ -55,7 +59,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rigidbody2D.MovePosition(rigidbody2D.position + playerMovement * Time.deltaTime);
+        myRigidbody.MovePosition(myRigidbody.position + playerMovement * Time.deltaTime);
     }
 
     private void horizontal(float value)
@@ -92,9 +96,9 @@ public class PlayerController : MonoBehaviour
 
     private void startHealing()
     {
-        if (healMeter < healLauchLevel) return;
+        if (HealMeter < healLauchLevel) return;
 
-        healMeter -= healLauchLevel;
+        HealMeter -= healLauchLevel;
         //ANIMATION : Start healing animation, in the middle, activates collider and hurt ennemies
         //SOUND : Healing attack sound
         
