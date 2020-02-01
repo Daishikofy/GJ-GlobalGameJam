@@ -123,7 +123,7 @@ public class DungeonFactory : MonoBehaviour
                 loop = false;
             }
         }
-        /*
+        
         loop = true;
         while (loop)
         {
@@ -132,9 +132,10 @@ public class DungeonFactory : MonoBehaviour
             if (!room.isExit)
             {
                 room.isEntry = true;
-                //TODO : Game manager must know this room is an entry
+                GameManager.Instance.playerStartRoom = room.position;
+                loop = false;
             }
-        }*/
+        }
 
         //TODO : Ask game manager if it should instanciate a special room
     }
