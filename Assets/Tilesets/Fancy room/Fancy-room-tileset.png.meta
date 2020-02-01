@@ -35,6 +35,18 @@ TextureImporter:
   - first:
       213: -917185944823446336
     second: Fancy-room-tileset_10
+  - first:
+      213: 4323605893343819394
+    second: Fancy-room-tileset_11
+  - first:
+      213: 4842189721434797836
+    second: Fancy-room-tileset_12
+  - first:
+      213: 7655518025535686768
+    second: Fancy-room-tileset_13
+  - first:
+      213: -7578289271181378268
+    second: Fancy-room-tileset_14
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -157,7 +169,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9377301c0cae3af42b8b39642de09fda
+      spriteID: af2769aba99db3e4c81f0acf7571db18
       internalID: -320111502819500603
       vertices: []
       indices: 
@@ -178,7 +190,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0afe7753a4a807447a83614d323c49c8
+      spriteID: e54c46a4798bcc44c94941ae1f9c3e75
       internalID: -3340900610459266868
       vertices: []
       indices: 
@@ -199,7 +211,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6382dbedcc3e8141a851147715707e5
+      spriteID: 1e2829dc8bf58394fb671d81444537d9
       internalID: 435612793178746367
       vertices: []
       indices: 
@@ -220,7 +232,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2d3b0040be552349b2917826be3e67a
+      spriteID: 2ac0d354b19011c4ab1849b7db0c99e0
       internalID: -8283954835679443735
       vertices: []
       indices: 
@@ -241,7 +253,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a9bdd014d9714f4ab8cd14fb3def350
+      spriteID: b4a0369bba676e94ebec25a5da7b4199
       internalID: 7540599819026246600
       vertices: []
       indices: 
@@ -262,7 +274,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df25f4d7748350540a873025a061f0e7
+      spriteID: d46e069aae828ec4eb34004620877eb0
       internalID: -283061144284970548
       vertices: []
       indices: 
@@ -270,6 +282,27 @@ TextureImporter:
       weights: []
     - serializedVersion: 2
       name: Fancy-room-tileset_6
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 200
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa093fa957cc56340af1c741e470e758
+      internalID: 6913588220969701719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fancy-room-tileset_7
       rect:
         serializedVersion: 2
         x: 100
@@ -283,14 +316,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 844539d2866cdf247b5f409cd4c5d3b8
-      internalID: 6913588220969701719
+      spriteID: 6c7000523842c3d42bad6a60eada8fad
+      internalID: 7384062536647205307
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fancy-room-tileset_7
+      name: Fancy-room-tileset_8
       rect:
         serializedVersion: 2
         x: 200
@@ -304,14 +337,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12fc83764ef2b364a879074c595465ff
-      internalID: 7384062536647205307
+      spriteID: d8a4b2c3670d54a47a94b79b6874ff7b
+      internalID: 3606983352612183940
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fancy-room-tileset_8
+      name: Fancy-room-tileset_9
       rect:
         serializedVersion: 2
         x: 300
@@ -325,14 +358,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 445830fe82dd47648a16873b4354b773
-      internalID: 3606983352612183940
+      spriteID: 8ddf102ddbae2be42812fe35dd3ae93a
+      internalID: 2197920569155910869
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fancy-room-tileset_9
+      name: Fancy-room-tileset_10
       rect:
         serializedVersion: 2
         x: 400
@@ -346,14 +379,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8802adc7565dd4541b9a18f0731d8c68
-      internalID: 2197920569155910869
+      spriteID: 6932d8fd0d486cc4795a11ba4934fb44
+      internalID: -917185944823446336
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fancy-room-tileset_10
+      name: Fancy-room-tileset_11
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a053e5921fb21b4ba89d79b3547ec2f
+      internalID: 4323605893343819394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fancy-room-tileset_12
       rect:
         serializedVersion: 2
         x: 300
@@ -367,8 +421,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 305fb47cdd5bfd64ba3969ab8fdf859b
-      internalID: -917185944823446336
+      spriteID: 0099d1346469c9f40b89d70fb48016db
+      internalID: 4842189721434797836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fancy-room-tileset_13
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77db6adcbe3b5b442a97e1d8a0801f84
+      internalID: 7655518025535686768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fancy-room-tileset_14
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a6937dd24d9fbf4d9e8a8ab7e8e4e80
+      internalID: -7578289271181378268
       vertices: []
       indices: 
       edges: []
