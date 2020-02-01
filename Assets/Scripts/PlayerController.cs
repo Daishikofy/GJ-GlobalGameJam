@@ -1,38 +1,81 @@
 ﻿#pragma warning disable 0649
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamageable
 {
     [SerializeField]
-    private float speed;
+    int maxLife;
+    int currentLife;
+    [Space]
     [SerializeField]
-    private int attackPower;
+    float speed;
+    [Space]
     [SerializeField]
-    private int healPower;
+    int attackPower;
     [SerializeField]
-    private int healLauchLevel;
-    private int healMeter;
+    BoxCollider2D attackCollider;
+    [Space]
     [SerializeField]
-    private float healRadius;
+    int healPower;
     [SerializeField]
-    private BoxCollider2D boxCollider;
-    private PlayerInput playerInput;
-    private Rigidbody2D myRigidbody;
-    private Vector2 playerMovement;
-    private Vector2 playerDirection;
+    int healLauchLevel;
+    [SerializeField]
+    int healLunchNumber;
+    int healMeter;
+    [SerializeField]
+    float healRadius;
+    int karma;
+    
+    PlayerInput playerInput;
+    Rigidbody2D myRigidbody;
+    Vector2 playerMovement;
+    Vector2 playerDirection;
     bool isMoving = false;
     Animator animator;
 
-    int karma { get; }
+    IntEvent updateKarma;
+    IntEvent updateLife;
+    IntEvent updateHealMeter;
+    UnityEvent updateStatus;
+
+    //Getters ans setters here
+    #region Getters&Setters
+    public int Karma
+    {
+        get { return karma; }
+        set {
+            karma = value;
+            updateKarma.Invoke(karma);
+            }
+    }
 
     public int HealMeter
     {
         get { return healMeter; }
-        set { healMeter = value; } 
+        set
+        {
+            healMeter = value;
+            if (healMeter < 0) healMeter = 0;
+            updateHealMeter.Invoke(healMeter);
+        }
+         
     }
 
+    public int Life {
+        get { return currentLife; }
+        set {
+            Life = value;
+            if (currentLife > maxLife) currentLife = maxLife;
+            if (currentLife < 0)
+            {
+                isKo();
+                currentLife = 0;
+            }
+            updateLife.Invoke(currentLife);
+        }
+    }
+    #endregion gettersSetters
     // Use this for initialization
     void Start()
     {
@@ -46,9 +89,9 @@ public class PlayerController : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
 
         playerDirection = Vector2.down;
-       // animator.SetFloat("X", playerDirection.x);
-       // animator.SetFloat("Y", playerDirection.y);
-        HealMeter = 3;
+        // animator.SetFloat("X", playerDirection.x);
+        // animator.SetFloat("Y", playerDirection.y);
+        attackCollider.isTrigger = true;
     }
 
     private void Update()
@@ -66,6 +109,7 @@ public class PlayerController : MonoBehaviour
 
     private void horizontal(float value)
     {
+        //Debug.Log("Horizontal: " + value);
         if (value == 0 && playerMovement.y != 0)
             return;
         else
@@ -82,6 +126,7 @@ public class PlayerController : MonoBehaviour
 
     private void vertical(float value)
     {
+        //Debug.Log("Vertical: " + value);
         if (value == 0 && playerMovement.x != 0)
             return;
         else
@@ -127,17 +172,18 @@ public class PlayerController : MonoBehaviour
 
     private void killedEnnemy()
     {
-        karma--;
+        Karma -= 1;
     }
     private void savedEnnemy()
     {
-        karma++;
+        Life += 1;
+        Karma += 1;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Ennemy")) return;
-        if (collision.IsTouching(boxCollider))//The fist hit the ennemy
+        if (collision.IsTouching(attackCollider))//The fist hit the ennemy
         {
             collision.GetComponent<IDamageable>().onDamage(attackPower);
             var controller = collision.GetComponent<EnnemyController>();
@@ -145,11 +191,24 @@ public class PlayerController : MonoBehaviour
             controller.isDead.AddListener(killedEnnemy);
         }
     }
+    public void onDamage(int damage)
+    {
+        Life -= damage;
+        //SOUND : Takes damages
+        //ANIMATION : Takes damages
+    }
+
+    private void isKo()
+    {
+        //ANIMATION : Play death animation
+        //SOUND : Death sound
+        //MUSIC : Death music transition
+        updateStatus.Invoke();
+    }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(this.transform.position, healRadius);
     }
-
 }
