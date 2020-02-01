@@ -293,7 +293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomMaxDimensions: {x: 5, y: 4}
-  roomsNumber: 15
+  roomsNumber: 10
   upWallMap: {fileID: 676023338}
   downWallMap: {fileID: 1938129213}
   floorMap: {fileID: 1842420108}
