@@ -34,7 +34,25 @@ public class PlayerController : MonoBehaviour, IDamageable
     Vector2 playerMovement;
     Vector2 playerDirection;
     bool isMoving = false;
+    bool isAttacking = false;
     Animator animator;
+
+    [Space]
+    [Space]
+    [SerializeField]
+    AudioClip[] walking;
+    [SerializeField]
+    AudioClip healingAttack;
+    [SerializeField]
+    AudioClip attackingAttack;
+    [SerializeField]
+    AudioClip takesDamages;
+    [SerializeField]
+    AudioClip whenDead;
+    [SerializeField]
+    AudioClip powerUp;
+    [SerializeField]
+    AudioClip powerDown;
 
     [HideInInspector]
     public IntEvent updateKarma;
@@ -44,6 +62,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     public IntEvent updateHealMeter;
     [HideInInspector]
     public UnityEvent updateStatus;
+
 
     //Getters ans setters here
     #region Getters&Setters
@@ -120,6 +139,8 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void horizontal(float value)
     {
+        isMoving = (value != 0); 
+            
         //Debug.Log("Horizontal: " + value);
         if (value == 0 && playerMovement.y != 0)
             return;
@@ -137,6 +158,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void vertical(float value)
     {
+        isMoving = (value != 0);
         //Debug.Log("Vertical: " + value);
         if (value == 0 && playerMovement.x != 0)
             return;
@@ -155,30 +177,20 @@ public class PlayerController : MonoBehaviour, IDamageable
     private void startHealing()
     {
         if (HealMeter < healLauchLevel) return;
-
+        isAttacking = true;
         HealMeter -= healLauchLevel;
         //ANIMATION : Start healing animation, in the middle, activates collider and hurt ennemies
         //SOUND : Healing attack sound
+        //SoundManager.Instance.playSingle(healingAttack);
         
     }
 
     private void startAttacking()
     {
+        isAttacking = true;
         //ANIMATION : Start attack animation
         //SOUND : Attacking attack sound
-    }
-
-    private void healing()
-    {
-        Collider2D[] ennemies = Physics2D.OverlapCircleAll(this.transform.position, healRadius, 8);
-        Debug.Log("There are " + ennemies.Length + " ennemies in the circle");
-        foreach (var ennemy in ennemies)
-        {
-            ennemy.GetComponent<IReaparable>().onRepair(healPower);
-            var controller = ennemy.GetComponent<EnnemyController>();
-            controller.isFree.RemoveAllListeners();
-            controller.isFree.AddListener(savedEnnemy);
-        }
+        //SoundManager.Instance.playSingle(attackingAttack);
     }
 
     private void killedEnnemy()
@@ -236,5 +248,22 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(this.transform.position, healRadius);
+    }
+    private void animationTriggeredHealing()
+    {
+        Collider2D[] ennemies = Physics2D.OverlapCircleAll(this.transform.position, healRadius, 8);
+        Debug.Log("There are " + ennemies.Length + " ennemies in the circle");
+        foreach (var ennemy in ennemies)
+        {
+            ennemy.GetComponent<IReaparable>().onRepair(healPower);
+            var controller = ennemy.GetComponent<EnnemyController>();
+            controller.isFree.RemoveAllListeners();
+            controller.isFree.AddListener(savedEnnemy);
+        }
+        isAttacking = false;
+    }
+    private void animationTriggeredAttacking()
+    {
+        isAttacking = false;
     }
 }

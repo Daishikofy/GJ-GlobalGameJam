@@ -29,6 +29,17 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
     float timeSincePatrol;
     bool isChasing = false;
 
+    [Space]
+    [Space]
+    [SerializeField]
+    AudioClip attackingAttack;
+    [SerializeField]
+    AudioClip takesDamages;
+    [SerializeField]
+    AudioClip whenDead;
+    [SerializeField]
+    AudioClip takesHealing;
+
     [HideInInspector]
     public UnityEvent isDead;
     [HideInInspector]
