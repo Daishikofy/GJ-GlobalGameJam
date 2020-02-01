@@ -14,13 +14,18 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
     [SerializeField]
     int sadnessPoints;
     [SerializeField]
+    float stopDistance;
+    [SerializeField]
     float patrolCadence;
     [SerializeField]
     CircleCollider2D searchField;
 
     Rigidbody2D myRigidbody;
-    RectInt roomArea;
+    Rect roomArea;
     Vector2 patrolPoint;
+    Transform playerPosition;
+
+    Vector2 inicialPosition;
 
     float timeSincePatrol;
     bool isChasing = false;
@@ -38,25 +43,39 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
     // Start is called before the first frame update
     void Start()
     {
+        inicialPosition = this.transform.position;
         Vector2Int posMin = GetComponentInParent<Room>().position;
         Vector2Int dimensions = DungeonFactory.Instance.roomMaxDimensions;
         Debug.Log(dimensions);
-        roomArea = new RectInt(posMin, dimensions);
+        roomArea = new Rect(posMin, dimensions);
 
         myRigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     private void Update()
-    {          
-        if (isChasing) return;
-        timeSincePatrol += Time.deltaTime;
-        if (timeSincePatrol >= patrolCadence)
+    {
+        if (isChasing)
         {
-            patrolPoint = randomPatrolPoint();
-            timeSincePatrol = 0;
+            if (Vector2.Distance(transform.position, playerPosition.position) < stopDistance)
+                patrolPoint = transform.position;
+            else
+                patrolPoint = playerPosition.position;
+            if (!roomArea.Contains(this.transform.position))
+            {
+                isChasing = false;
+                this.transform.position = inicialPosition;
+            }
         }
-
+        else
+        {
+            timeSincePatrol += Time.deltaTime;
+            if (timeSincePatrol >= patrolCadence)
+            {
+                patrolPoint = randomPatrolPoint();
+                timeSincePatrol = 0;
+            }
+        }
     }
     private void FixedUpdate()
     {
@@ -110,7 +129,8 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
         if (collision.CompareTag("Player"))
         {
             isChasing = true;
-            patrolPoint = collision.transform.position;
+            playerPosition = collision.transform;
+            patrolPoint = playerPosition.position;
         }
     }
 
