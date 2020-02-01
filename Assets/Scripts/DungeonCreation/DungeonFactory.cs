@@ -89,15 +89,6 @@ public class DungeonFactory : MonoBehaviour
             conversion.y = roomsSpaces[i].y;
             //TODO : Check this transform
             GameObject room = Instantiate(rooms[i], conversion, Quaternion.identity, this.transform);
-            if (i == 0)
-            {
-                room.GetComponent<Room>().isEntry = true;
-                //TODO : Gamemanager set entry room position to roomsSpaces[i]
-            }
-            else if (i == rooms.Length - 1)
-            {
-                room.GetComponent<Room>().isExit = true;
-            }
 
             Tilemap[] tilemaps = room.GetComponentsInChildren<Tilemap>();
             foreach (var tilemap in tilemaps)
@@ -107,7 +98,33 @@ public class DungeonFactory : MonoBehaviour
                 Destroy(tilemap.gameObject);
             }
         }
+        bool loop = true;
+        while (loop)
+        {
+            int randomExit = Random.Range(0, rooms.Length);
+            Room room = rooms[randomExit].GetComponent<Room>();
+            if (room.Type.ToString().Length != 2)
+            {
+                room.isExit = true;
+                //TODO : Instanciate exit in this room
+                //Game manager must know this room is an exit
+                loop = false;
+            }
+        }
 
+        loop = true;
+        while (loop)
+        {
+            int randomEntry = Random.Range(0, rooms.Length);
+            Room room = rooms[randomEntry].GetComponent<Room>();
+            if (!room.isExit)
+            {
+                room.isEntry = true;
+                //TODO : Game manager must know this room is an entry
+            }
+        }
+
+        //TODO : Ask game manager if it should instanciate a special room
     }
 
     private void copyRoom(Vector2Int position, Tilemap roomToCopy, Tilemap tilemap)
