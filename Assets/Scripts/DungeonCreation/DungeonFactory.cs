@@ -228,9 +228,7 @@ public class DungeonFactory : MonoBehaviour
     }
 
     private void OnDrawGizmos()
-    {
-        
-
+    {       
         Gizmos.color = Color.red;
         var position = new Vector3(0, 0, 0);
 
@@ -256,6 +254,7 @@ public class DungeonFactory : MonoBehaviour
         Gizmos.DrawSphere((dRight + uRight) / 2, 0.1f);
         Gizmos.DrawSphere((uRight + uLeft) / 2, 0.1f);
 
+        if (roomsSpaces == null) return;
         foreach (var room in roomsSpaces)
         {
             Gizmos.color = Color.blue;
