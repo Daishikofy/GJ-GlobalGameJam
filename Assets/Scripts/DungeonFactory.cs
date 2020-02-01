@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿
+#pragma warning disable 0649
+using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,21 +14,24 @@ public class DungeonFactory : MonoBehaviour
     int roomsNumber;
     List<Vector2Int> availableSpaces;
     Vector2Int[] roomsSpaces;
-
     GameObject[] rooms;
 
-    private void Start()
+    [Space]
+    [SerializeField]
+    Tilemap upWallMap;
+    [SerializeField]
+    Tilemap downWallMap;
+    [SerializeField]
+    Tilemap floorMap;
+
+    public void generateDungeon(int roomsNumber)
     {
-        generateDungeon(/*roomNumberE*/);
-    }
-    public void generateDungeon(/*int roomsNumber*/)
-    {
-        selectRooms(/*roomsNumber*/);
+        selectRooms(roomsNumber);
         generateRooms();
         instanciateRooms();
     }
 
-    private void selectRooms(/*int roomsNumber*/)
+    private void selectRooms(int roomsNumber)
     {
         roomsSpaces = new Vector2Int[roomsNumber];
         availableSpaces = new List<Vector2Int>();
@@ -61,11 +66,17 @@ public class DungeonFactory : MonoBehaviour
 
     private void generateRooms()
     {
-        foreach (var room in roomsSpaces)
+        rooms = new GameObject[roomsNumber];
+        int i = 0;
+        foreach (var roomSpace in roomsSpaces)
         {
-            RoomType type = selectRoomType(room);
-            //GameObject room = selectRoom(type) **Select room
-            //Add room to an array of rooms
+            RoomType type = selectRoomType(roomSpace);
+            GameObject room = selectRoom(type);
+            rooms[i] = room;
+            i++;
+
+            if (room.GetComponent<Room>().Type != type)
+                Debug.LogError("LIRE CETTE ERREUR : The room " + room.name + " in folder resources/prefabRooms/" + type + " is not of the expected type.");
         }
     }
 
@@ -80,17 +91,86 @@ public class DungeonFactory : MonoBehaviour
             GameObject room = Instantiate(rooms[i], conversion, Quaternion.identity, this.transform);
             if (i == 0)
             {
-                //room.GetComponent<Room>().isEntry = true;
-                //Gamemanager set entry room position to roomsSpaces[i]
+                room.GetComponent<Room>().isEntry = true;
+                //TODO : Gamemanager set entry room position to roomsSpaces[i]
             }
             else if (i == rooms.Length - 1)
             {
-                //room.GetComponent<Room>().isExit = true;
+                room.GetComponent<Room>().isExit = true;
             }
 
             Tilemap[] tilemaps = room.GetComponentsInChildren<Tilemap>();
-            //use paintRoom to copy the tileMap and then delete
+            foreach (var tilemap in tilemaps)
+            {
+                Tilemap currentTilemap = selectCurrentMap(tilemap.name, room.name);
+                copyRoom(roomsSpaces[i], tilemap, currentTilemap);
+                Destroy(tilemap.gameObject);
+            }
         }
+
+    }
+
+    private void copyRoom(Vector2Int position, Tilemap roomToCopy, Tilemap tilemap)
+    {
+        TileBase[] tiles = GetRoomTiles(roomToCopy);
+
+        Vector3Int tilePosition = new Vector3Int(0, 0, 0);
+        Vector2Int increment = new Vector2Int(position.x, position.y);
+        foreach (var tile in tiles)
+        {
+            if (increment.x >= (roomMaxDimensions.x + position.x))
+            {
+                increment.y++;
+                increment.x = position.x;
+            }
+            tilePosition.x = increment.x;
+            tilePosition.y = increment.y;
+
+            tilemap.SetTile(tilePosition, tile);
+            increment.x++;
+        }
+        tilemap.RefreshAllTiles();
+    }
+
+    private TileBase[] GetRoomTiles(Tilemap room)
+    {
+        Vector3Int tilePosition = new Vector3Int(0, 0, 0);
+        int count = roomMaxDimensions.x * roomMaxDimensions.y;
+        TileBase[] tiles = new TileBase[count];
+
+        int index = 0;
+        for (int y = 0; y < roomMaxDimensions.y; y++)
+        {
+            for (int x = 0; x < roomMaxDimensions.x; x++)
+            {
+                tilePosition.x = x;
+                tilePosition.y = y;
+                tiles[index] = room.GetTile(tilePosition);
+                index++;
+            }
+        }
+        return tiles;
+    }
+
+    private GameObject selectRoom(RoomType type)
+    {
+        string path = "RoomsPrefab/" + type.ToString();
+        GameObject[] rooms = Resources.LoadAll<GameObject>(path);
+        int rand = Random.Range(0, rooms.Length);
+        return rooms[rand];
+    }
+
+    private Tilemap selectCurrentMap (string name, string roomName)
+    {
+        if (name == "Up_Wall")
+            return upWallMap;
+        else if (name == "Down_Wall")
+            return downWallMap;
+        else if (name == "Floor")
+            return floorMap;
+        else
+            Debug.LogError("LIRE CETTE ERREUR : In room >" + roomName + "<, the map " + name + " has an invalid name.");
+        return null;
     }
 
     private RoomType selectRoomType(Vector2Int position)

@@ -1,13 +1,14 @@
-﻿using System.Collections;
+﻿#pragma warning disable 0649
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class PaintDungeon : MonoBehaviour
 {
-    Tilemap tilemap;
+    Tilemap tilemap; //Tilemap sur la quelle va être copié les autres tilesmaps
     [SerializeField]
-    Vector2Int position;
+    Vector2Int position; //Position du 0,0 de la tilemap à copier
     [SerializeField]
     Tilemap[] rooms;
     [SerializeField]
