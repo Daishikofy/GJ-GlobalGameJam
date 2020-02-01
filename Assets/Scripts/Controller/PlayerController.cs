@@ -36,9 +36,13 @@ public class PlayerController : MonoBehaviour, IDamageable
     bool isMoving = false;
     Animator animator;
 
+    [HideInInspector]
     public IntEvent updateKarma;
+    [HideInInspector]
     public IntEvent updateLife;
+    [HideInInspector]
     public IntEvent updateHealMeter;
+    [HideInInspector]
     public UnityEvent updateStatus;
 
     //Getters ans setters here

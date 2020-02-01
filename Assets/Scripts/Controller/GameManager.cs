@@ -57,10 +57,10 @@ public class GameManager : MonoBehaviour
 
         int roomsNumber = (int)Mathf.Log(Mathf.Pow((float)currentLevel,2f),2f)+5;
         DungeonFactory.Instance.generateDungeon(roomsNumber);
-        Vector2 middleRoom = (playerStartRoom + DungeonFactory.Instance.roomMaxDimensions)/2;
-        Vector3 transformMidleRoom = new Vector3(middleRoom.x, middleRoom.y, 0);
-        player.transform.position = transformMidleRoom;
-        CameraController.Instance.setPosition(transformMidleRoom);
+        Vector2 middleRoom = ((Vector2)playerStartRoom + (Vector2)DungeonFactory.Instance.roomMaxDimensions)/2;
+        Debug.Log("Middle toom: " + middleRoom);
+        player.transform.position = new Vector3(middleRoom.x, middleRoom.y, 0);
+        CameraController.Instance.setPosition(new Vector3(middleRoom.x, middleRoom.y, -10));
         //Animation panelDown = StartAnimation();
         //yield return WaitForWaitForAnimation(panelUp);
         yield return null;
