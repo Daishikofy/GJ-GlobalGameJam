@@ -5,13 +5,14 @@ using System.Collections;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
-    PlayerController player;
+    [HideInInspector]
+    public PlayerController player;
 
     [HideInInspector]
     public Vector2Int playerStartRoom;
     [HideInInspector]
     public GameObject levelEndRoom;
-    int currentLevel;
+    int currentLevel = 1;
     [HideInInspector]
     public IntEvent updateLevel;
 
@@ -38,6 +39,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<PlayerController>();
+        //TESTE: Remove the following line
+        changeLevel();
     }
 
     public void changeLevel()
@@ -55,8 +58,9 @@ public class GameManager : MonoBehaviour
         int roomsNumber = (int)Mathf.Log(Mathf.Pow((float)currentLevel,2f),2f)+5;
         DungeonFactory.Instance.generateDungeon(roomsNumber);
         Vector2 middleRoom = (playerStartRoom + DungeonFactory.Instance.roomMaxDimensions)/2;
-        player.transform.position = new Vector3(middleRoom.x, middleRoom.y,0);
-
+        Vector3 transformMidleRoom = new Vector3(middleRoom.x, middleRoom.y, 0);
+        player.transform.position = transformMidleRoom;
+        CameraController.Instance.setPosition(transformMidleRoom);
         //Animation panelDown = StartAnimation();
         //yield return WaitForWaitForAnimation(panelUp);
         yield return null;

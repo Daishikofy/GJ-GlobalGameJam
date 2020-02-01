@@ -75,7 +75,7 @@ public class DungeonFactory : MonoBehaviour
 
     private void generateRooms()
     {
-        rooms = new GameObject[roomsNumber];
+        rooms = new GameObject[roomsSpaces.Length];
         int i = 0;
         foreach (var roomSpace in roomsSpaces)
         {
@@ -83,14 +83,15 @@ public class DungeonFactory : MonoBehaviour
             GameObject room = selectRoom(type);
             rooms[i] = room;
             i++;
-
-            if (room.GetComponent<Room>().Type != type)
-                Debug.LogError("LIRE CETTE ERREUR : The room " + room.name + " in folder resources/prefabRooms/" + type + " is not of the expected type.");
+            Debug.Log("Room number: " + i);
+           // if (room.GetComponent<Room>().Type != type)
+                //Debug.LogError("LIRE CETTE ERREUR : The room " + room.name + " in folder resources/prefabRooms/" + type + " is not of the expected type.");
         }
     }
 
     private void instanciateRooms()
     {
+        Debug.Log("Rooms spaces: " + roomsSpaces.Length + " - Rooms: " + rooms.Length);
         Vector3 conversion = new Vector3();
         for (int i = 0; i < rooms.Length; i++)
         {
