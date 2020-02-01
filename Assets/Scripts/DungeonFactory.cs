@@ -245,10 +245,16 @@ public class DungeonFactory : MonoBehaviour
         Gizmos.DrawLine(dRight, uRight);
 
         Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(dLeft, 0.1f);
-        Gizmos.DrawSphere(dRight, 0.1f);
-        Gizmos.DrawSphere(uLeft, 0.1f);
-        Gizmos.DrawSphere(dRight, 0.1f);
+        Gizmos.DrawSphere(dLeft, 0.15f);
+        Gizmos.DrawSphere(dRight, 0.15f);
+        Gizmos.DrawSphere(uLeft, 0.15f);
+        Gizmos.DrawSphere(uRight, 0.15f);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere((dLeft + dRight)/2, 0.1f);
+        Gizmos.DrawSphere((dLeft + uLeft) / 2, 0.1f);
+        Gizmos.DrawSphere((dRight + uRight) / 2, 0.1f);
+        Gizmos.DrawSphere((uRight + uLeft) / 2, 0.1f);
 
         foreach (var room in roomsSpaces)
         {
