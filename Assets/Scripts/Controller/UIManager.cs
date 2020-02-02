@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     private static UIManager instance;
 
     [SerializeField]
-    Image koPanel;
+    GameObject koPanel;
     [SerializeField]
     Image goodKarma;
     [SerializeField]
@@ -19,8 +19,6 @@ public class UIManager : MonoBehaviour
     Image[] life;
     [SerializeField]
     TextMeshProUGUI level;
-    [SerializeField]
-    TextMeshProUGUI healthAttackBar;
     #region Singleton
     private void Awake()
     {
@@ -36,17 +34,12 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         PlayerController player = FindObjectOfType<PlayerController>();
-        player.updateHealMeter.AddListener(updateHealMeter);
         player.updateKarma.AddListener(updateKarma);
         player.updateLife.AddListener(updateLife);
         GameManager.Instance.updateLevel.AddListener(updateLevel);
-        koPanel.enabled = false;
+        koPanel.SetActive(false);
     }
 
-    private void updateHealMeter(int value)
-    {
-        healthAttackBar.text = "HealthAttack: " + value.ToString();
-    }
     private void updateLife(int value)
     {
         if (life[value].IsActive())
@@ -92,6 +85,6 @@ public class UIManager : MonoBehaviour
 
     public void showKoPanel()
     {
-        koPanel.enabled = true;
+        koPanel.SetActive(true);
     }
 }

@@ -65,7 +65,6 @@ public class GameManager : MonoBehaviour
 
     public void changeLevel()
     {
-        SoundManager.Instance.pauseMusic();
         StartCoroutine(newRandomLevel());
     }
 
@@ -73,8 +72,6 @@ public class GameManager : MonoBehaviour
     {
         CurrentLevel += 1;
         Time.timeScale = 0;
-        //Animation panelUp = StartAnimation();
-        //yield return WaitForWaitForAnimation(panelUp);
         Destroy(DungeonFactory.Instance.roomHolder);
 
         int roomsNumber = (int)Mathf.Log(Mathf.Pow((float)currentLevel,2f),2f)+5;
