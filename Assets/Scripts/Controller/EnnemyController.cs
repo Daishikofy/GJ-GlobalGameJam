@@ -75,7 +75,6 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
         Vector2Int posMin = GetComponentInParent<Room>().position;
         Vector2Int dimensions;
         dimensions = DungeonFactory.Instance.roomMaxDimensions;
-        Debug.Log(dimensions);
         roomArea = new Rect(posMin, dimensions);
 
         myRigidbody = GetComponent<Rigidbody2D>();
@@ -150,6 +149,7 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
     {
         //ANIMATOR
         //SOUND
+        isDead.Invoke();
         Destroy(this.gameObject);
     }
 
@@ -157,6 +157,7 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
     {
         //ANIMATOR
         //SOUND
+        isFree.Invoke();
         Destroy(this.gameObject);
     }
 
@@ -194,6 +195,7 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
         {
             if (canAttack)
             {
+                Debug.Log("Attacking the player!!");
                 collision.gameObject.GetComponent<IDamageable>().onDamage(power);
                 StartCoroutine(coolDownActionAttack(coolDown));
             }
@@ -206,8 +208,6 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
     private IEnumerator coolDownActionAttack(float coolDownTime)
     {
         canAttack = false;
-        float time = 0 ;
-        Debug.Log(coolDownTime); ;
         yield return new WaitForSeconds(coolDownTime);
 
         canAttack = true;
@@ -215,8 +215,6 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
     private IEnumerator coolDownActionDrop(float coolDownTime)
     {
         canDrop = false;
-        float time = 0;
-        Debug.Log(coolDownTime); ;
         yield return new WaitForSeconds(coolDownTime);
 
         canDrop = true;

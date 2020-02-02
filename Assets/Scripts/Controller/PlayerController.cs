@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     // Use this for initialization
     void Start()
     {
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         playerInput = new PlayerInput();
         playerInput.Enable();
         playerInput.Player.Horizontal.performed += context => horizontal(context.ReadValue<float>());
@@ -137,13 +137,14 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void FixedUpdate()
     {
+        if (isAttacking) return;
         myRigidbody.MovePosition(myRigidbody.position + playerMovement * Time.deltaTime);
     }
 
     private void horizontal(float value)
     {
-        isMoving = (value != 0); 
-            
+        isMoving = (value != 0);
+        animator.SetBool("IsWalking", isMoving);
         //Debug.Log("Horizontal: " + value);
         if (value == 0 && playerMovement.y != 0)
             return;
@@ -162,6 +163,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     private void vertical(float value)
     {
         isMoving = (value != 0);
+        animator.SetBool("IsWalking", isMoving);
         //Debug.Log("Vertical: " + value);
         if (value == 0 && playerMovement.x != 0)
             return;
@@ -195,7 +197,6 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         if (healingAnimation.activeSelf)
             healingAnimation.SetActive(false);
-        Karma += 5;
         if (HealMeter < healLauchLevel) return;
         isAttacking = true;
         HealMeter -= healLauchLevel;
@@ -208,9 +209,9 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void startAttacking()
     {
-        Karma -= 1;
         isAttacking = true;
-        //ANIMATION : Start attack animation
+        animator.SetBool("IsWalking", false);
+        animator.SetTrigger("IsAttacking");
         //SOUND : Attacking attack sound
         //SoundManager.Instance.playSingle(attackingAttack);
     }
@@ -230,17 +231,19 @@ public class PlayerController : MonoBehaviour, IDamageable
         if (!collision.CompareTag("Ennemy")) return;
         if (collision.IsTouching(attackCollider))//The fist hit the ennemy
         {
+            Debug.Log("Attacking the ennemy");
             collision.GetComponent<IDamageable>().onDamage(attackPower);
             var controller = collision.GetComponent<EnnemyController>();
-            controller.isDead.RemoveAllListeners();
+            //controller.isDead.RemoveAllListeners();
+            controller.isDead.RemoveListener(killedEnnemy);
             controller.isDead.AddListener(killedEnnemy);
         }
     }
     public void onDamage(int damage)
     {
-        Life -= damage;
+        Life = Life - damage;
         //SOUND : Takes damages
-        //ANIMATION : Takes damages
+        animator.SetTrigger("TakesDamage");
     }
 
     private void isKo()
@@ -279,13 +282,21 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             ennemy.GetComponent<IReaparable>().onRepair(healPower);
             var controller = ennemy.GetComponent<EnnemyController>();
-            controller.isFree.RemoveAllListeners();
+            //controller.isFree.RemoveAllListeners();
+            controller.isFree.RemoveListener(savedEnnemy);
             controller.isFree.AddListener(savedEnnemy);
         }
         isAttacking = false;
     }
     private void animationTriggeredAttacking()
     {
+        Debug.Log("TRIGGER");
+        attackCollider.enabled = true;
+        isAttacking = false;
+    }
+    private void animationTriggeredEndAttacking()
+    {
+        attackCollider.enabled = false;
         isAttacking = false;
     }
 }

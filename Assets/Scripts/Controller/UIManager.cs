@@ -50,7 +50,7 @@ public class UIManager : MonoBehaviour
     }
     private void updateKarma(int value)
     {
-        Debug.Log("Update karma: " + value);
+/*        Debug.Log("Update karma: " + value);*/
         float maxValue = 10;
         Image currentImage;
         if (value > 0)

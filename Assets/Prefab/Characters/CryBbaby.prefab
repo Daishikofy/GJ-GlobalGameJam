@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1657724072293692984}
   - component: {fileID: 1657724072293692990}
   - component: {fileID: 1657724072293692986}
+  - component: {fileID: -7289500758672096666}
   m_Layer: 0
   m_Name: CryBbaby
   m_TagString: Ennemy
@@ -112,15 +113,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  power: 0
-  coolDown: 0
+  power: 1
+  coolDown: 2
   lifePoints: 3
   sadnessPoints: 6
   stopDistance: 1
   patrolCadence: 3
   searchField: {fileID: 1657724072293692984}
   drop: {fileID: 1965859680157222488, guid: 34ac234850f1edc43a807f4d0982ed76, type: 3}
-  dropCadence: {x: 1, y: 2}
+  dropCadence: {x: 3, y: 6}
   attackingAttack: {fileID: 0}
   takesDamages: {fileID: 0}
   whenDead: {fileID: 0}
@@ -182,6 +183,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &-7289500758672096666
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657724072293692988}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3ea44378b42436e4091b5c41fa3fd05c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4829912915240344085
 GameObject:
   m_ObjectHideFlags: 0
