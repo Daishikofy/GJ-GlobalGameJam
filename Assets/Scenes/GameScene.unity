@@ -1501,7 +1501,8 @@ MonoBehaviour:
   roomMaxDimensions: {x: 15, y: 11}
   roomsNumber: 0
   roomHolder: {fileID: 0}
-  elevator: {fileID: 0}
+  elevator: {fileID: 6191013726581883314, guid: 188a304b476b8274db60d7342964cd74,
+    type: 3}
   upWallMap: {fileID: 676023338}
   downWallMap: {fileID: 1938129213}
   floorMap: {fileID: 1842420108}
