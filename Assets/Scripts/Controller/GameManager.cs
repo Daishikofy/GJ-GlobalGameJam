@@ -1,6 +1,7 @@
 ﻿#pragma warning disable 0649
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -46,8 +47,20 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<PlayerController>();
+        player.updateStatus.AddListener(gameOver);
         //TESTE: Remove the following line
         changeLevel();
+    }
+
+    private void gameOver()
+    {
+        UIManager.Instance.showKoPanel();
+        Time.timeScale = 0f;
+    }
+
+    public void restartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void changeLevel()

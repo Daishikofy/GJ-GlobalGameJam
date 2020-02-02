@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
     private static UIManager instance;
 
     [SerializeField]
+    Image koPanel;
+    [SerializeField]
     Image goodKarma;
     [SerializeField]
     Image badKarma;
@@ -38,6 +40,7 @@ public class UIManager : MonoBehaviour
         player.updateKarma.AddListener(updateKarma);
         player.updateLife.AddListener(updateLife);
         GameManager.Instance.updateLevel.AddListener(updateLevel);
+        koPanel.enabled = false;
     }
 
     private void updateHealMeter(int value)
@@ -85,5 +88,10 @@ public class UIManager : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    public void showKoPanel()
+    {
+        koPanel.enabled = true;
     }
 }
