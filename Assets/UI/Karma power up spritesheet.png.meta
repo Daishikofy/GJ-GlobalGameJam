@@ -1,34 +1,22 @@
 fileFormatVersion: 2
-guid: e9852d3e5573f0c4ca891aadd256f43f
+guid: 6b0c6b0cd8cee2445b3da322081e4bdc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6042049801305983315
-    second: Main character attack spritesheet_0
+      213: -8881091291793211260
+    second: Karma power up spritesheet_0
   - first:
-      213: -5866768346114917242
-    second: Main character attack spritesheet_1
+      213: 3739932561513738137
+    second: Karma power up spritesheet_1
   - first:
-      213: -1277983418417274709
-    second: Main character attack spritesheet_2
+      213: -3339796064858632899
+    second: Karma power up spritesheet_2
   - first:
-      213: -1477969004308952435
-    second: Main character attack spritesheet_3
+      213: 4064670271545889954
+    second: Karma power up spritesheet_3
   - first:
-      213: 7200807015448396002
-    second: Main character attack spritesheet_4
-  - first:
-      213: 1931333517769377166
-    second: Main character attack spritesheet_5
-  - first:
-      213: 9012546863926797112
-    second: Main character attack spritesheet_6
-  - first:
-      213: -5678593965100711455
-    second: Main character attack spritesheet_7
-  - first:
-      213: -7557221417754688744
-    second: Main character attack spritesheet_8
+      213: -3855183037236299350
+    second: Karma power up spritesheet_4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -113,13 +101,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Main character attack spritesheet_0
+      name: Karma power up spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 201.33334
-        width: 149.33333
-        height: 100.666664
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,20 +115,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0259c94b6cb792448c82f6c4956c14a
-      internalID: 6042049801305983315
+      spriteID: 7c819fc4a14eff24b86dddb528914eb2
+      internalID: -8881091291793211260
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Main character attack spritesheet_1
+      name: Karma power up spritesheet_1
       rect:
         serializedVersion: 2
-        x: 149
-        y: 201.33334
-        width: 149.33333
-        height: 100.666664
+        x: 100
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,20 +136,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09066b98ad2e1d54f9501318bee75054
-      internalID: -5866768346114917242
+      spriteID: d2ec33683fb46574c905106a327678b8
+      internalID: 3739932561513738137
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Main character attack spritesheet_2
+      name: Karma power up spritesheet_2
       rect:
         serializedVersion: 2
-        x: 298
-        y: 201.33334
-        width: 149.33333
-        height: 100.666664
+        x: 202
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,20 +157,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72882263e6110d34a8edf25fb6da94b8
-      internalID: -1277983418417274709
+      spriteID: 09c9957fa53f8cb46b8d2950d4325630
+      internalID: -3339796064858632899
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Main character attack spritesheet_3
+      name: Karma power up spritesheet_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 101.333336
-        width: 149.33333
-        height: 100.666664
+        x: 300
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,20 +178,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d31833eaaa2bf94a9757262e6874cfd
-      internalID: -1477969004308952435
+      spriteID: 56f6aabaf1e26be44834bc071daf06f5
+      internalID: 4064670271545889954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Main character attack spritesheet_4
+      name: Karma power up spritesheet_4
       rect:
         serializedVersion: 2
-        x: 149
-        y: 101.333336
-        width: 149.33333
-        height: 100.666664
+        x: 400
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -211,71 +199,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98fc4cd83ae8d364ebad6cd6be444e68
-      internalID: 7200807015448396002
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Main character attack spritesheet_5
-      rect:
-        serializedVersion: 2
-        x: 298
-        y: 101.333336
-        width: 149.33333
-        height: 100.666664
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3f67bbdb456a9224aa50f3b3b853ff6d
-      internalID: 1931333517769377166
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Main character attack spritesheet_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1
-        width: 149
-        height: 101
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ca3cffacca3cd7645bac585d3d8d85db
-      internalID: 9012546863926797112
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Main character attack spritesheet_7
-      rect:
-        serializedVersion: 2
-        x: 149
-        y: 1.3333359
-        width: 149.33333
-        height: 100.666664
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7110e77ee86086c40a1bae5f594a080c
-      internalID: -5678593965100711455
+      spriteID: 68d041a2114d4704bb985f64a6148157
+      internalID: -3855183037236299350
       vertices: []
       indices: 
       edges: []

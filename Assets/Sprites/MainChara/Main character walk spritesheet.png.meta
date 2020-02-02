@@ -1,34 +1,37 @@
 fileFormatVersion: 2
-guid: e9852d3e5573f0c4ca891aadd256f43f
+guid: f9bacc1aa03ee82478afe48dcb5bf77f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6042049801305983315
-    second: Main character attack spritesheet_0
+      213: -4261671793806517058
+    second: Main character walk spritesheet_0
   - first:
-      213: -5866768346114917242
-    second: Main character attack spritesheet_1
+      213: -4438734529192688205
+    second: Main character walk spritesheet_1
   - first:
-      213: -1277983418417274709
-    second: Main character attack spritesheet_2
+      213: -8191880242558531615
+    second: Main character walk spritesheet_2
   - first:
-      213: -1477969004308952435
-    second: Main character attack spritesheet_3
+      213: -6896892864671595072
+    second: Main character walk spritesheet_3
   - first:
-      213: 7200807015448396002
-    second: Main character attack spritesheet_4
+      213: 5564877942228860008
+    second: Main character walk spritesheet_4
   - first:
-      213: 1931333517769377166
-    second: Main character attack spritesheet_5
+      213: 1982159613855568183
+    second: Main character walk spritesheet_5
   - first:
-      213: 9012546863926797112
-    second: Main character attack spritesheet_6
+      213: -1536063369549798204
+    second: Main character walk spritesheet_6
   - first:
-      213: -5678593965100711455
-    second: Main character attack spritesheet_7
+      213: -3074654433562810053
+    second: Main character walk spritesheet_7
   - first:
-      213: -7557221417754688744
-    second: Main character attack spritesheet_8
+      213: 9112647313070327512
+    second: Main character walk spritesheet_8
+  - first:
+      213: 3579749259337926963
+    second: Main character walk spritesheet_9
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -113,169 +116,211 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Main character attack spritesheet_0
+      name: Main character walk spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 201.33334
-        width: 149.33333
-        height: 100.666664
+        y: 306
+        width: 147.66667
+        height: 102
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0259c94b6cb792448c82f6c4956c14a
-      internalID: 6042049801305983315
+      spriteID: ace51636232ca5d4697c7f6193cda0cd
+      internalID: -4261671793806517058
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Main character attack spritesheet_1
+      name: Main character walk spritesheet_1
       rect:
         serializedVersion: 2
-        x: 149
-        y: 201.33334
-        width: 149.33333
-        height: 100.666664
+        x: 147
+        y: 306
+        width: 147.66667
+        height: 102
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09066b98ad2e1d54f9501318bee75054
-      internalID: -5866768346114917242
+      spriteID: ec3ff15b88e0a0345af21385640d1b3f
+      internalID: -4438734529192688205
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Main character attack spritesheet_2
+      name: Main character walk spritesheet_2
       rect:
         serializedVersion: 2
-        x: 298
-        y: 201.33334
-        width: 149.33333
-        height: 100.666664
+        x: 294
+        y: 306
+        width: 147.66667
+        height: 102
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72882263e6110d34a8edf25fb6da94b8
-      internalID: -1277983418417274709
+      spriteID: 39e2ffc61b01bbe49bc031d34bdafff2
+      internalID: -8191880242558531615
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Main character attack spritesheet_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 101.333336
-        width: 149.33333
-        height: 100.666664
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1d31833eaaa2bf94a9757262e6874cfd
-      internalID: -1477969004308952435
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Main character attack spritesheet_4
-      rect:
-        serializedVersion: 2
-        x: 149
-        y: 101.333336
-        width: 149.33333
-        height: 100.666664
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 98fc4cd83ae8d364ebad6cd6be444e68
-      internalID: 7200807015448396002
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Main character attack spritesheet_5
-      rect:
-        serializedVersion: 2
-        x: 298
-        y: 101.333336
-        width: 149.33333
-        height: 100.666664
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3f67bbdb456a9224aa50f3b3b853ff6d
-      internalID: 1931333517769377166
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Main character attack spritesheet_6
+      name: Main character walk spritesheet_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 1
-        width: 149
-        height: 101
+        y: 204
+        width: 147.66667
+        height: 102
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca3cffacca3cd7645bac585d3d8d85db
-      internalID: 9012546863926797112
+      spriteID: 7186d15ce261c3d41844a95c28e3aaea
+      internalID: -6896892864671595072
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Main character attack spritesheet_7
+      name: Main character walk spritesheet_4
       rect:
         serializedVersion: 2
-        x: 149
-        y: 1.3333359
-        width: 149.33333
-        height: 100.666664
+        x: 147
+        y: 204
+        width: 147.66667
+        height: 102
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7110e77ee86086c40a1bae5f594a080c
-      internalID: -5678593965100711455
+      spriteID: 5415633466b44ca4981967956598d7a5
+      internalID: 5564877942228860008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main character walk spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 204
+        width: 147.66667
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f05444326ff0144db8414640afc9c92
+      internalID: 1982159613855568183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main character walk spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 102
+        width: 147.66667
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb2c89fd8993c3c458977acf6e2459bf
+      internalID: -1536063369549798204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main character walk spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 102
+        width: 147.66667
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28b7da8864947424cba705894fddc911
+      internalID: -3074654433562810053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main character walk spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 102
+        width: 147.66667
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b5c47ce886bf4742ac8418330d9bf75
+      internalID: 9112647313070327512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main character walk spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 147.66667
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22302f1b7bf07bb44ae4bac2be6b43bf
+      internalID: 3579749259337926963
       vertices: []
       indices: 
       edges: []
