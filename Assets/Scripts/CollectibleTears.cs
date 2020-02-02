@@ -13,6 +13,7 @@ public class CollectibleTears : CollectibleItem
     float currentTime;
     protected override void onCollecting(PlayerController player)
     {
+        Debug.Log("Colleting tear");
         player.HealMeter = value;
     }
 

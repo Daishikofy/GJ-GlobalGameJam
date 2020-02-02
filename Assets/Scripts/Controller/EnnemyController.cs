@@ -13,6 +13,7 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
     float coolDown;
     [SerializeField]
     int lifePoints;
+    int maxPoints;
     [SerializeField]
     int sadnessPoints;
     [SerializeField]
@@ -57,7 +58,7 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
     public UnityEvent isDead;
     [HideInInspector]
     public UnityEvent isFree;
-
+    private SpriteRenderer renderer;
     public int LifePoints
     {
         get { return lifePoints; }
@@ -78,6 +79,8 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
         roomArea = new Rect(posMin, dimensions);
 
         myRigidbody = GetComponent<Rigidbody2D>();
+        renderer = GetComponent<SpriteRenderer>();
+        maxPoints = lifePoints;
     }
 
     // Update is called once per frame
@@ -128,6 +131,9 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
         else
         {
             //TODO: Add an effect to show life
+            Color color = Color.white;
+            color.a = (lifePoints / maxPoints);
+            renderer.color = color;
         }
     }
 
@@ -141,7 +147,9 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
         }
         else
         {
-            //TODO: Add an effect to show life
+            float scale = (lifePoints / maxPoints);
+            Vector3 size = new Vector3(scale, scale, 0);
+            this.transform.localScale = size;
         }
     }
 

@@ -63,6 +63,11 @@ public class PlayerController : MonoBehaviour, IDamageable
     [HideInInspector]
     public UnityEvent updateStatus;
 
+    [HideInInspector]
+    public int savedGhosts;
+    [HideInInspector]
+    public int killedGhosts;
+
     [SerializeField]
     GameObject healingAnimation;
 
@@ -230,10 +235,12 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void killedEnnemy()
     {
+        killedGhosts++;
         Karma -= 1;
     }
     private void savedEnnemy()
     {
+        savedGhosts++;
         Life += 1;
         Karma += 1;
     }
