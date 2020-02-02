@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Butler ghost Idle
+  m_Name: Circle of love
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,31 +20,31 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 5616945175121785102, guid: cdddcf61bb478be4fb9424ffeb1fc472,
+      value: {fileID: 4197117369317846733, guid: 96a4456a273470c42a12b0d6bab56038,
         type: 3}
-    - time: 0.125
-      value: {fileID: 8006792500466419403, guid: cdddcf61bb478be4fb9424ffeb1fc472,
+    - time: 0.083333336
+      value: {fileID: 213903157584450705, guid: 96a4456a273470c42a12b0d6bab56038,
+        type: 3}
+    - time: 0.16666667
+      value: {fileID: 6897039081680828553, guid: 96a4456a273470c42a12b0d6bab56038,
         type: 3}
     - time: 0.25
-      value: {fileID: 5821729191780174054, guid: cdddcf61bb478be4fb9424ffeb1fc472,
+      value: {fileID: 3153246474200436760, guid: 96a4456a273470c42a12b0d6bab56038,
         type: 3}
-    - time: 0.375
-      value: {fileID: -7793534398344165907, guid: cdddcf61bb478be4fb9424ffeb1fc472,
+    - time: 0.33333334
+      value: {fileID: -1493290321211968318, guid: 96a4456a273470c42a12b0d6bab56038,
+        type: 3}
+    - time: 0.41666666
+      value: {fileID: -2811147993339626417, guid: 96a4456a273470c42a12b0d6bab56038,
         type: 3}
     - time: 0.5
-      value: {fileID: 562750635526704627, guid: cdddcf61bb478be4fb9424ffeb1fc472,
-        type: 3}
-    - time: 0.625
-      value: {fileID: -1442526620959142089, guid: cdddcf61bb478be4fb9424ffeb1fc472,
-        type: 3}
-    - time: 0.75
-      value: {fileID: -3480178307716493011, guid: cdddcf61bb478be4fb9424ffeb1fc472,
+      value: {fileID: 2114270675209909763, guid: 96a4456a273470c42a12b0d6bab56038,
         type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 8
+  m_SampleRate: 12
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -59,19 +59,19 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 5616945175121785102, guid: cdddcf61bb478be4fb9424ffeb1fc472, type: 3}
-    - {fileID: 8006792500466419403, guid: cdddcf61bb478be4fb9424ffeb1fc472, type: 3}
-    - {fileID: 5821729191780174054, guid: cdddcf61bb478be4fb9424ffeb1fc472, type: 3}
-    - {fileID: -7793534398344165907, guid: cdddcf61bb478be4fb9424ffeb1fc472, type: 3}
-    - {fileID: 562750635526704627, guid: cdddcf61bb478be4fb9424ffeb1fc472, type: 3}
-    - {fileID: -1442526620959142089, guid: cdddcf61bb478be4fb9424ffeb1fc472, type: 3}
-    - {fileID: -3480178307716493011, guid: cdddcf61bb478be4fb9424ffeb1fc472, type: 3}
+    - {fileID: 4197117369317846733, guid: 96a4456a273470c42a12b0d6bab56038, type: 3}
+    - {fileID: 213903157584450705, guid: 96a4456a273470c42a12b0d6bab56038, type: 3}
+    - {fileID: 6897039081680828553, guid: 96a4456a273470c42a12b0d6bab56038, type: 3}
+    - {fileID: 3153246474200436760, guid: 96a4456a273470c42a12b0d6bab56038, type: 3}
+    - {fileID: -1493290321211968318, guid: 96a4456a273470c42a12b0d6bab56038, type: 3}
+    - {fileID: -2811147993339626417, guid: 96a4456a273470c42a12b0d6bab56038, type: 3}
+    - {fileID: 2114270675209909763, guid: 96a4456a273470c42a12b0d6bab56038, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.875
+    m_StopTime: 0.5833333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
