@@ -113,6 +113,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         playerInput.Player.Vertical.performed += context => vertical(context.ReadValue<float>());
         playerInput.Player.Attack1.performed += context => startHealing();
         playerInput.Player.Attack2.performed += context => startAttacking();
+        playerInput.Player.Interaction.performed += context => interacting();
         myRigidbody = GetComponent<Rigidbody2D>();
 
         playerDirection = Vector2.down;
@@ -172,6 +173,20 @@ public class PlayerController : MonoBehaviour, IDamageable
         playerMovement *= speed;
         //animator.SetFloat("X", playerDirection.x);
         //animator.SetFloat("Y", playerDirection.y);
+    }
+
+    private void interacting()
+    {
+        Vector3 startPoint = transform.position + Vector3.up * 0.1f;
+        RaycastHit2D hit = Physics2D.Raycast(startPoint, playerDirection, 0.5f);
+        Debug.Log("fraction: " + hit.fraction);
+        Debug.DrawRay(startPoint, playerDirection, Color.red, 1);
+      
+        IInteractible interactable = hit.collider.gameObject.GetComponent<IInteractible>();
+        //Debug.Log(hit.collider.gameObject.name);
+
+        if (interactable == null) return;
+        interactable.onInteraction(this);
     }
 
     private void startHealing()
