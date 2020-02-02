@@ -16,6 +16,14 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public IntEvent updateLevel;
 
+    [SerializeField]
+    AudioClip attackMusic;
+    [SerializeField]
+    AudioClip normalMusic;
+    [SerializeField]
+    AudioClip transitionEffects;
+    int ennemiesChassing;
+
     public int CurrentLevel {
         get { return currentLevel; }
         set
@@ -24,7 +32,6 @@ public class GameManager : MonoBehaviour
             updateLevel.Invoke(currentLevel);
         }
     }
-
     #region Singleton
     private void Awake()
     {
@@ -45,6 +52,7 @@ public class GameManager : MonoBehaviour
 
     public void changeLevel()
     {
+        SoundManager.Instance.pauseMusic();
         StartCoroutine(newRandomLevel());
     }
 
@@ -62,15 +70,14 @@ public class GameManager : MonoBehaviour
         float x = (float)playerStartRoom.x + (float)DungeonFactory.Instance.roomMaxDimensions.x/ 2;
         float y = (float)playerStartRoom.y + (float)DungeonFactory.Instance.roomMaxDimensions.y/ 2;
         Vector2 middleRoom = new Vector2(x,y);
-
-
-        Debug.Log("playerStartRoom: " + middleRoom + " - y: " + y);
-        Debug.Log("Middle toom: " + middleRoom);
         player.transform.position = new Vector3(middleRoom.x, middleRoom.y, 0);
         CameraController.Instance.setPosition(new Vector3(middleRoom.x, middleRoom.y, -10));
+
         //Animation panelDown = StartAnimation();
+        //SoundManager.Instance.playSingle(transitionEffects);
         //yield return WaitForWaitForAnimation(panelUp);
         yield return null;
+        SoundManager.Instance.playMusic(normalMusic);
         Time.timeScale = 1;
     }
 
@@ -80,6 +87,26 @@ public class GameManager : MonoBehaviour
         {
             yield return null;
         } while (animation.isPlaying);
+    }
+
+    public void changeToAttackMusic(bool value)
+    {
+        if (value)
+        {
+            if (ennemiesChassing == 0)
+            {
+                SoundManager.Instance.playMusic(attackMusic);
+            }
+            ennemiesChassing++;
+        }
+        else
+        {
+            ennemiesChassing--;
+            if (ennemiesChassing == 0)
+            {
+                SoundManager.Instance.playMusic(normalMusic);
+            }
+        }
     }
 
 }

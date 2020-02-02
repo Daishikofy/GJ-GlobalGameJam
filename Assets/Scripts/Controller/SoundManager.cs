@@ -44,4 +44,9 @@ public class SoundManager : MonoBehaviour
         musicSource.clip = clip;
         musicSource.Play();
     }
+
+    public void pauseMusic()
+    {
+        musicSource.Stop();
+    }
 }

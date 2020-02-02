@@ -1,6 +1,7 @@
 ﻿#pragma warning disable 0649
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
 
 public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
 {
@@ -8,6 +9,8 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
     float speed;
     [SerializeField]
     int power;
+    [SerializeField]
+    float coolDown;
     [SerializeField]
     int lifePoints;
     [SerializeField]
@@ -19,6 +22,14 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
     [SerializeField]
     CircleCollider2D searchField;
 
+
+    [Space]
+    [SerializeField]
+    GameObject drop;
+    [SerializeField]
+    Vector2 dropCadence;
+    bool canDrop = true;
+
     Rigidbody2D myRigidbody;
     Rect roomArea;
     Vector2 patrolPoint;
@@ -28,6 +39,8 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
 
     float timeSincePatrol;
     bool isChasing = false;
+
+    bool canAttack = true;
 
     [Space]
     [Space]
@@ -71,6 +84,12 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
     // Update is called once per frame
     private void Update()
     {
+        if (canDrop)
+        {
+            float randTime = Random.Range(dropCadence.x, dropCadence.y);
+            Instantiate(drop, this.transform.position, Quaternion.identity);
+            StartCoroutine(coolDownActionDrop(randTime));
+        }
         if (isChasing)
         {
             if (Vector2.Distance(transform.position, playerPosition.position) < stopDistance)
@@ -79,6 +98,7 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
                 patrolPoint = playerPosition.position;
             if (!roomArea.Contains(this.transform.position))
             {
+                GameManager.Instance.changeToAttackMusic(false);
                 isChasing = false;
                 this.transform.position = inicialPosition;
             }
@@ -145,6 +165,7 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
         if (collision.CompareTag("Player"))
         {
             isChasing = true;
+            GameManager.Instance.changeToAttackMusic(true);
             playerPosition = collision.transform;
             patrolPoint = playerPosition.position;
         }
@@ -170,9 +191,34 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-        { }
+        {
+            if (canAttack)
+            {
+                collision.gameObject.GetComponent<IDamageable>().onDamage(power);
+                StartCoroutine(coolDownActionAttack(coolDown));
+            }
+        }
         else
             patrolPoint = randomPatrolPoint();
             timeSincePatrol = 0;
+    }
+
+    private IEnumerator coolDownActionAttack(float coolDownTime)
+    {
+        canAttack = false;
+        float time = 0 ;
+        Debug.Log(coolDownTime); ;
+        yield return new WaitForSeconds(coolDownTime);
+
+        canAttack = true;
+    }
+    private IEnumerator coolDownActionDrop(float coolDownTime)
+    {
+        canDrop = false;
+        float time = 0;
+        Debug.Log(coolDownTime); ;
+        yield return new WaitForSeconds(coolDownTime);
+
+        canDrop = true;
     }
 }
