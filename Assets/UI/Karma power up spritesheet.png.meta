@@ -1,19 +1,22 @@
 fileFormatVersion: 2
-guid: 2748d21f513e53f4aabcee531af98c40
+guid: 6b0c6b0cd8cee2445b3da322081e4bdc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2087450622468174843
-    second: Main character hurt spritesheet_0
+      213: -8881091291793211260
+    second: Karma power up spritesheet_0
   - first:
-      213: 5917602809559669288
-    second: Main character hurt spritesheet_1
+      213: 3739932561513738137
+    second: Karma power up spritesheet_1
   - first:
-      213: 1600085168248145312
-    second: Main character hurt spritesheet_2
+      213: -3339796064858632899
+    second: Karma power up spritesheet_2
   - first:
-      213: -3988087089139842221
-    second: Main character hurt spritesheet_3
+      213: 4064670271545889954
+    second: Karma power up spritesheet_3
+  - first:
+      213: -3855183037236299350
+    second: Karma power up spritesheet_4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -98,85 +101,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Main character hurt spritesheet_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 100
-        width: 145.33333
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0e14f31c431735248acaec68d91bc2d7
-      internalID: -2087450622468174843
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Main character hurt spritesheet_1
-      rect:
-        serializedVersion: 2
-        x: 145
-        y: 99
-        width: 145
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1322bd566a827ce49993fa067b2bdd58
-      internalID: 5917602809559669288
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Main character hurt spritesheet_2
-      rect:
-        serializedVersion: 2
-        x: 290
-        y: 100
-        width: 145.33333
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2d6fa576eeb7ee240afe66742b55d342
-      internalID: 1600085168248145312
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Main character hurt spritesheet_3
+      name: Karma power up spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 145.33333
+        width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cda0b4dc11ff5a04dab8d7aea7f54ed6
-      internalID: -3988087089139842221
+      spriteID: 7c819fc4a14eff24b86dddb528914eb2
+      internalID: -8881091291793211260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Karma power up spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2ec33683fb46574c905106a327678b8
+      internalID: 3739932561513738137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Karma power up spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09c9957fa53f8cb46b8d2950d4325630
+      internalID: -3339796064858632899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Karma power up spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56f6aabaf1e26be44834bc071daf06f5
+      internalID: 4064670271545889954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Karma power up spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68d041a2114d4704bb985f64a6148157
+      internalID: -3855183037236299350
       vertices: []
       indices: 
       edges: []

@@ -1360,6 +1360,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomMaxDimensions: {x: 15, y: 11}
   roomsNumber: 0
+  roomHolder: {fileID: 0}
+  elevator: {fileID: 0}
   upWallMap: {fileID: 676023338}
   downWallMap: {fileID: 1938129213}
   floorMap: {fileID: 1842420108}
@@ -1570,7 +1572,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.48, y: 1.01}
+    oldSize: {x: 1.4766667, y: 1.02}
     newSize: {x: 1.48, y: 1.01}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1681,7 +1683,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.48, y: 1.01}
+    oldSize: {x: 1.4766667, y: 1.02}
     newSize: {x: 1.48, y: 1.01}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
