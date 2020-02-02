@@ -70,6 +70,8 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     [SerializeField]
     GameObject healingAnimation;
+    [SerializeField]
+    GameObject powerUpAnimation;
 
     //Getters ans setters here
     #region Getters&Setters
@@ -142,10 +144,6 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void FixedUpdate()
     {
-        if (isAttacking)
-        {
-
-        } return;
         myRigidbody.MovePosition(myRigidbody.position + playerMovement * Time.deltaTime);
     }
 
@@ -280,6 +278,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         int newKarmaLevel = Mathf.Abs(karma) % 20;
         if (newKarmaLevel > currentKarmaLevel)
         {
+            Instantiate(powerUpAnimation, new Vector3(0, 0.5f, 0), Quaternion.identity, this.transform);
             //ANIMATION: Power up
             //SOUND: power up
             //SoundManager.Instance.playSingle(powerUp);

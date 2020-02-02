@@ -106,7 +106,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 93.6
+        width: 69
         height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -115,7 +115,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fceab552b7507e24bab5acd0cbd1e09e
+      spriteID: 4c9531567f2245e44989f816f8fd913c
       internalID: 2327314381085380440
       vertices: []
       indices: 
@@ -125,9 +125,9 @@ TextureImporter:
       name: Healing halo spritesheet_1
       rect:
         serializedVersion: 2
-        x: 93
+        x: 99
         y: 0
-        width: 93.6
+        width: 69
         height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -136,7 +136,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23d4fdd8b6599dc41b5623573edf6971
+      spriteID: 4ca6e5d2aeff57145b830f402cd0f975
       internalID: 1402498414750561613
       vertices: []
       indices: 
@@ -146,9 +146,9 @@ TextureImporter:
       name: Healing halo spritesheet_2
       rect:
         serializedVersion: 2
-        x: 186
+        x: 198
         y: 0
-        width: 93.6
+        width: 69
         height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -157,7 +157,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 240a30c634f497a41988ddae82a8f871
+      spriteID: 97aaf811aa9806048b415e11524608f4
       internalID: -425091679873632590
       vertices: []
       indices: 
@@ -167,9 +167,9 @@ TextureImporter:
       name: Healing halo spritesheet_3
       rect:
         serializedVersion: 2
-        x: 279
+        x: 297
         y: 0
-        width: 93.6
+        width: 69
         height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -178,7 +178,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06fc239bfab1bc240b0124ada0799717
+      spriteID: c19f4924be0734f4bbe625d2cbc4fd3c
       internalID: 8963114599237664796
       vertices: []
       indices: 
@@ -188,9 +188,9 @@ TextureImporter:
       name: Healing halo spritesheet_4
       rect:
         serializedVersion: 2
-        x: 372
+        x: 396
         y: 0
-        width: 93.6
+        width: 69
         height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -199,7 +199,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ebaa33e21b247c048a69167ba4702ebf
+      spriteID: e80bd9482029c6b45af995fbc51e1848
       internalID: 9178891565040695581
       vertices: []
       indices: 

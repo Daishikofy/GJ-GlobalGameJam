@@ -132,7 +132,7 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
         {
             //TODO: Add an effect to show life
             Color color = Color.white;
-            color.a = (lifePoints / maxPoints);
+            color.a = ((float)lifePoints / (float)maxPoints);
             renderer.color = color;
         }
     }
@@ -147,7 +147,7 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
         }
         else
         {
-            float scale = (lifePoints / maxPoints);
+            float scale = ((float)lifePoints / (float)maxPoints);
             Vector3 size = new Vector3(scale, scale, 0);
             this.transform.localScale = size;
         }
