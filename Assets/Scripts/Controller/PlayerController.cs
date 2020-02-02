@@ -137,7 +137,10 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void FixedUpdate()
     {
-        if (isAttacking) return;
+        if (isAttacking)
+        {
+
+        } return;
         myRigidbody.MovePosition(myRigidbody.position + playerMovement * Time.deltaTime);
     }
 
@@ -204,7 +207,11 @@ public class PlayerController : MonoBehaviour, IDamageable
         //ANIMATION : Start healing animation, in the middle, activates collider and hurt ennemies
         //SOUND : Healing attack sound
         //SoundManager.Instance.playSingle(healingAttack);
-        
+        if (isMoving)
+        {
+            isMoving = false;
+            playerMovement = Vector2.zero;
+        }
     }
 
     private void startAttacking()
@@ -214,6 +221,11 @@ public class PlayerController : MonoBehaviour, IDamageable
         animator.SetTrigger("IsAttacking");
         //SOUND : Attacking attack sound
         //SoundManager.Instance.playSingle(attackingAttack);
+        if (isMoving)
+        {
+            isMoving = false;
+            playerMovement = Vector2.zero;
+        }
     }
 
     private void killedEnnemy()
@@ -243,6 +255,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         Life = Life - damage;
         //SOUND : Takes damages
+        //SoundManager.Instance.playSingle(takesDamages);
         animator.SetTrigger("TakesDamage");
     }
 
@@ -250,7 +263,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         //ANIMATION : Play death animation
         //SOUND : Death sound
-        //MUSIC : Death music transition
+        //SoundManager.Instance.playSingle(whenDead);
+        SoundManager.Instance.pauseMusic();
         updateStatus.Invoke();
     }
 
@@ -261,11 +275,13 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             //ANIMATION: Power up
             //SOUND: power up
+            //SoundManager.Instance.playSingle(powerUp);
         }
         else if (newKarmaLevel < currentKarmaLevel)
         {
             //ANIMATION: Power down
             //SOUND: power down
+            //SoundManager.Instance.playSingle(powerDown);
         }
     }
 
