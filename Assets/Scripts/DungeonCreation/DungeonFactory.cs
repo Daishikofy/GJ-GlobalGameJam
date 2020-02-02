@@ -124,7 +124,7 @@ public class DungeonFactory : MonoBehaviour
             {
                 room.isExit = true;
                 //TODO : Instanciate exit in this room
-                Vector3 exitPosition = room.position + new Vector2(10.5f,7.5f);
+                Vector3 exitPosition = room.position + new Vector2(10.5f,7.9f);
                 Instantiate(elevator, exitPosition, Quaternion.identity, roomHolder.transform);
                 GameManager.Instance.levelEndRoom = rooms[randomExit];
                 loop = false;
