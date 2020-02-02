@@ -63,6 +63,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     [HideInInspector]
     public UnityEvent updateStatus;
 
+    [SerializeField]
+    GameObject healingAnimation;
 
     //Getters ans setters here
     #region Getters&Setters
@@ -191,11 +193,13 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void startHealing()
     {
-        Debug.Log("good");
+        if (healingAnimation.activeSelf)
+            healingAnimation.SetActive(false);
         Karma += 5;
         if (HealMeter < healLauchLevel) return;
         isAttacking = true;
         HealMeter -= healLauchLevel;
+        healingAnimation.SetActive(true);
         //ANIMATION : Start healing animation, in the middle, activates collider and hurt ennemies
         //SOUND : Healing attack sound
         //SoundManager.Instance.playSingle(healingAttack);
@@ -204,7 +208,6 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void startAttacking()
     {
-        Debug.Log("bad");
         Karma -= 1;
         isAttacking = true;
         //ANIMATION : Start attack animation

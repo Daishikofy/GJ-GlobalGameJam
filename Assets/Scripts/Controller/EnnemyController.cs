@@ -60,7 +60,8 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
     {
         inicialPosition = this.transform.position;
         Vector2Int posMin = GetComponentInParent<Room>().position;
-        Vector2Int dimensions = DungeonFactory.Instance.roomMaxDimensions;
+        Vector2Int dimensions;
+        dimensions = DungeonFactory.Instance.roomMaxDimensions;
         Debug.Log(dimensions);
         roomArea = new Rect(posMin, dimensions);
 
