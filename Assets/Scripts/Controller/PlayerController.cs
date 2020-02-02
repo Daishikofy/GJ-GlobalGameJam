@@ -191,6 +191,8 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void startHealing()
     {
+        Debug.Log("good");
+        Karma += 5;
         if (HealMeter < healLauchLevel) return;
         isAttacking = true;
         HealMeter -= healLauchLevel;
@@ -202,6 +204,8 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void startAttacking()
     {
+        Debug.Log("bad");
+        Karma -= 1;
         isAttacking = true;
         //ANIMATION : Start attack animation
         //SOUND : Attacking attack sound

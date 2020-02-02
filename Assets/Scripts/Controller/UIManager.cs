@@ -1,7 +1,7 @@
 ﻿#pragma warning disable 0649
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 using TMPro;
 
 public class UIManager : MonoBehaviour
@@ -9,7 +9,10 @@ public class UIManager : MonoBehaviour
     private static UIManager instance;
 
     [SerializeField]
-    TextMeshProUGUI karma;
+    Image goodKarma;
+    [SerializeField]
+    Image badKarma;
+    [Space]
     [SerializeField]
     TextMeshProUGUI life;
     [SerializeField]
@@ -47,10 +50,37 @@ public class UIManager : MonoBehaviour
     }
     private void updateKarma(int value)
     {
-        karma.text = "Karma: " + value.ToString();
+        Debug.Log("Update karma: " + value);
+        float maxValue = 10;
+        Image currentImage;
+        if (value > 0)
+        {
+            currentImage = goodKarma;
+            badKarma.fillAmount = 0f;
+        }
+        else
+        {
+            currentImage = badKarma;
+            goodKarma.fillAmount = 0f;
+        }
+        float newFill = Mathf.Abs(value) / maxValue;   
+        currentImage.fillAmount = newFill;
     }
     private void updateLevel(int value)
     {
         level.text = "Level: " + value.ToString();
+    }
+
+    private IEnumerator fillUI(Image image, float newFill, float speed)
+    {
+        float remaining = Mathf.Abs(image.fillAmount - newFill);
+        while (remaining > float.Epsilon)
+        {
+            float newPosition = image.fillAmount + newFill * Time.deltaTime * speed;
+            image.fillAmount = newPosition;
+            remaining = Mathf.Abs(image.fillAmount - newFill);
+
+            yield return null;
+        }
     }
 }

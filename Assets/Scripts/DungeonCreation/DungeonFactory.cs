@@ -16,6 +16,7 @@ public class DungeonFactory : MonoBehaviour
     Vector2Int[] roomsSpaces;
     GameObject[] rooms;
 
+    [HideInInspector]
     public GameObject roomHolder;
     [SerializeField]
     GameObject elevator;
