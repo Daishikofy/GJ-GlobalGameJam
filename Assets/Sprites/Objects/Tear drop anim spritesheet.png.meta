@@ -14,6 +14,12 @@ TextureImporter:
   - first:
       213: -8684022049487191426
     second: Tear drop anim spritesheet_3
+  - first:
+      213: -2771674621748769045
+    second: Tear drop anim spritesheet_4
+  - first:
+      213: 4484061894738508192
+    second: Tear drop anim spritesheet_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -102,9 +108,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 93
-        width: 100
-        height: 100
+        y: 96.5
+        width: 97.4
+        height: 96.5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,7 +118,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 468ea8fdab198204f8725493d4da6857
+      spriteID: 66844072d43358241a53aef56cc53e14
       internalID: 7406948137470072541
       vertices: []
       indices: 
@@ -122,10 +128,10 @@ TextureImporter:
       name: Tear drop anim spritesheet_1
       rect:
         serializedVersion: 2
-        x: 100
-        y: 93
-        width: 100
-        height: 100
+        x: 97
+        y: 96.5
+        width: 97.4
+        height: 96.5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,7 +139,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95759f7ab9a9bbd41b7b69d2899dc88b
+      spriteID: e54ecb37ec5de204494305d7b239160d
       internalID: 4926548984613577382
       vertices: []
       indices: 
@@ -143,10 +149,10 @@ TextureImporter:
       name: Tear drop anim spritesheet_2
       rect:
         serializedVersion: 2
-        x: 200
-        y: 93
-        width: 100
-        height: 100
+        x: 194
+        y: 96.5
+        width: 97.4
+        height: 96.5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,7 +160,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbc72f1330134ea46abe47d78d0fea3f
+      spriteID: 2625cd343dbc6a84ba2fd6fb8f5b3267
       internalID: -6425561547700948076
       vertices: []
       indices: 
@@ -164,10 +170,10 @@ TextureImporter:
       name: Tear drop anim spritesheet_3
       rect:
         serializedVersion: 2
-        x: 300
-        y: 93
-        width: 100
-        height: 100
+        x: 291
+        y: 96.5
+        width: 97.4
+        height: 96.5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,8 +181,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af8147baab559af4aa7d26fd6c39be78
+      spriteID: e124bfd7a249a7b4db831982214e1e2d
       internalID: -8684022049487191426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tear drop anim spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 96.5
+        width: 97.4
+        height: 96.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65b599b193a93304591f18b10e5601e1
+      internalID: -2771674621748769045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tear drop anim spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.5
+        width: 97.4
+        height: 96.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38a7a6a1564342f479af012cca191d8e
+      internalID: 4484061894738508192
       vertices: []
       indices: 
       edges: []
