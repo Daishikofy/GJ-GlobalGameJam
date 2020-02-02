@@ -16,6 +16,9 @@ public class DungeonFactory : MonoBehaviour
     Vector2Int[] roomsSpaces;
     GameObject[] rooms;
 
+    public GameObject roomHolder;
+    [SerializeField]
+    GameObject elevator;
     [Space]
     [SerializeField]
     Tilemap upWallMap;
@@ -81,16 +84,17 @@ public class DungeonFactory : MonoBehaviour
         {
             RoomType type = selectRoomType(roomSpace);
             GameObject room = selectRoom(type);
+            room.GetComponent<Room>().position = roomSpace;
             rooms[i] = room;
             i++;
-            Debug.Log("Room number: " + i);
-           // if (room.GetComponent<Room>().Type != type)
-                //Debug.LogError("LIRE CETTE ERREUR : The room " + room.name + " in folder resources/prefabRooms/" + type + " is not of the expected type.");
+            if (room.GetComponent<Room>().Type != type)
+                Debug.LogError("LIRE CETTE ERREUR : The room " + room.name + " in folder resources/prefabRooms/" + type + " is not of the expected type.");
         }
     }
 
     private void instanciateRooms()
     {
+        roomHolder = new GameObject("RoomHolder");
         Debug.Log("Rooms spaces: " + roomsSpaces.Length + " - Rooms: " + rooms.Length);
         Vector3 conversion = new Vector3();
         for (int i = 0; i < rooms.Length; i++)
@@ -98,7 +102,7 @@ public class DungeonFactory : MonoBehaviour
             conversion.x = roomsSpaces[i].x;
             conversion.y = roomsSpaces[i].y;
             //TODO : Check this transform
-            GameObject room = Instantiate(rooms[i], conversion, Quaternion.identity, this.transform);
+            GameObject room = Instantiate(rooms[i], conversion, Quaternion.identity, roomHolder.transform);
             room.GetComponent<Room>().position = roomsSpaces[i];
             Tilemap[] tilemaps = room.GetComponentsInChildren<Tilemap>();
             /*
@@ -119,6 +123,8 @@ public class DungeonFactory : MonoBehaviour
             {
                 room.isExit = true;
                 //TODO : Instanciate exit in this room
+                Vector3 exitPosition = room.position + new Vector2(10.5f,7.5f);
+                Instantiate(elevator, exitPosition, Quaternion.identity, roomHolder.transform);
                 GameManager.Instance.levelEndRoom = rooms[randomExit];
                 loop = false;
             }

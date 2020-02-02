@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public Vector2Int playerStartRoom;
     [HideInInspector]
     public GameObject levelEndRoom;
-    int currentLevel = 1;
+    int currentLevel = 0;
     [HideInInspector]
     public IntEvent updateLevel;
 
@@ -54,10 +54,17 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         //Animation panelUp = StartAnimation();
         //yield return WaitForWaitForAnimation(panelUp);
+        Destroy(DungeonFactory.Instance.roomHolder);
 
         int roomsNumber = (int)Mathf.Log(Mathf.Pow((float)currentLevel,2f),2f)+5;
         DungeonFactory.Instance.generateDungeon(roomsNumber);
-        Vector2 middleRoom = ((Vector2)playerStartRoom + (Vector2)DungeonFactory.Instance.roomMaxDimensions)/2;
+
+        float x = (float)playerStartRoom.x + (float)DungeonFactory.Instance.roomMaxDimensions.x/ 2;
+        float y = (float)playerStartRoom.y + (float)DungeonFactory.Instance.roomMaxDimensions.y/ 2;
+        Vector2 middleRoom = new Vector2(x,y);
+
+
+        Debug.Log("playerStartRoom: " + middleRoom + " - y: " + y);
         Debug.Log("Middle toom: " + middleRoom);
         player.transform.position = new Vector3(middleRoom.x, middleRoom.y, 0);
         CameraController.Instance.setPosition(new Vector3(middleRoom.x, middleRoom.y, -10));
