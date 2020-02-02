@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     [Space]
     [SerializeField]
     float speed;
+    float inicialSpeed;
     [Space]
     [SerializeField]
     int attackPower;
@@ -36,6 +37,14 @@ public class PlayerController : MonoBehaviour, IDamageable
     bool isMoving = false;
     bool isAttacking = false;
     Animator animator;
+    [Space]
+    [Space]
+    [SerializeField]
+    GameObject healingAnimation;
+    [SerializeField]
+    GameObject powerUpAnimation;
+    [SerializeField]
+    GameObject canHealPicture;
 
     [Space]
     [Space]
@@ -68,10 +77,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     [HideInInspector]
     public int killedGhosts;
 
-    [SerializeField]
-    GameObject healingAnimation;
-    [SerializeField]
-    GameObject powerUpAnimation;
+    
 
     //Getters ans setters here
     #region Getters&Setters
@@ -91,11 +97,18 @@ public class PlayerController : MonoBehaviour, IDamageable
         get { return healMeter; }
         set
         {
+            Debug.Log("Heal meter: " + healMeter);
             healMeter = value;
             if (healMeter < 0) healMeter = 0;
             updateHealMeter.Invoke(healMeter);
-        }
-         
+            if (canHealPicture.activeSelf && (healMeter < healLauchLevel))
+                canHealPicture.SetActive(false);
+            else if (!canHealPicture.activeSelf && (healMeter >= healLauchLevel))
+            {
+                Instantiate(healingAnimation, new Vector3(0, 0.5f, 0), Quaternion.identity, this.transform);
+                canHealPicture.SetActive(true);
+            }
+        }        
     }
 
     public int Life {
@@ -132,6 +145,8 @@ public class PlayerController : MonoBehaviour, IDamageable
         Life = maxLife;
         Karma = 0;
         HealMeter = 0;
+        canHealPicture.SetActive(false);
+        inicialSpeed = speed;
     }
 
     private void Update()
@@ -201,8 +216,6 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void startHealing()
     {
-        if (healingAnimation.activeSelf)
-            healingAnimation.SetActive(false);
         if (HealMeter < healLauchLevel) return;
         isAttacking = true;
         HealMeter -= healLauchLevel;
@@ -279,16 +292,34 @@ public class PlayerController : MonoBehaviour, IDamageable
         if (newKarmaLevel > currentKarmaLevel)
         {
             Instantiate(powerUpAnimation, new Vector3(0, 0.5f, 0), Quaternion.identity, this.transform);
-            //ANIMATION: Power up
+            if (Karma > 0)
+            {// bon karma
+                healPower++;
+                speed += 0.5f;
+            }
+            else if (Karma < 0) // mauvais
+            {
+                attackPower++;
+            }
             //SOUND: power up
             //SoundManager.Instance.playSingle(powerUp);
         }
         else if (newKarmaLevel < currentKarmaLevel)
         {
+            if (Karma > 0)
+            {// bon karma
+                healPower--;
+                speed -= 0.5f;
+            }
+            else if (Karma < 0) // mauvais
+            {
+                attackPower--;
+            }
             //ANIMATION: Power down
             //SOUND: power down
             //SoundManager.Instance.playSingle(powerDown);
         }
+        else { attackPower = 1; healPower = 1; speed = inicialSpeed; }
     }
 
     private void OnDrawGizmos()

@@ -4,16 +4,20 @@ using System.Collections;
 public class DestroyAfterAnimation : MonoBehaviour
 {
 
-    Animator animator;
+    public float time = 3;
+    private Animator animator;
     // Use this for initialization
     void Start()
     {
-       animator = GetComponent<Animator>();
-    }
+        animator = GetComponent<Animator>();
+        if (animator != null)
+        {
 
-    // Update is called once per frame
-    void Update()
-    {
-
+            AnimatorClipInfo[] clips = animator.GetCurrentAnimatorClipInfo(0);
+            if (clips.Length > 0)
+                Destroy(this.gameObject, clips[0].clip.length);
+        }
+        else
+            Destroy(this.gameObject, 1.0f);
     }
 }

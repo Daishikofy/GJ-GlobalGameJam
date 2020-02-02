@@ -108,14 +108,14 @@ TextureImporter:
         y: 0
         width: 100
         height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c819fc4a14eff24b86dddb528914eb2
+      spriteID: fb9e982c8a75bd84cb29378f9fab16aa
       internalID: -8881091291793211260
       vertices: []
       indices: 
@@ -129,14 +129,14 @@ TextureImporter:
         y: 0
         width: 100
         height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2ec33683fb46574c905106a327678b8
+      spriteID: 8abee4459d4e7f04e9b754221865fea0
       internalID: 3739932561513738137
       vertices: []
       indices: 
@@ -146,18 +146,18 @@ TextureImporter:
       name: Karma power up spritesheet_2
       rect:
         serializedVersion: 2
-        x: 202
+        x: 200
         y: 0
         width: 100
         height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09c9957fa53f8cb46b8d2950d4325630
+      spriteID: eb91c32104806c64f8f195b418a0c8c0
       internalID: -3339796064858632899
       vertices: []
       indices: 
@@ -171,14 +171,14 @@ TextureImporter:
         y: 0
         width: 100
         height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56f6aabaf1e26be44834bc071daf06f5
+      spriteID: e4c84de739ea7064084d3cbb48012557
       internalID: 4064670271545889954
       vertices: []
       indices: 
@@ -192,14 +192,14 @@ TextureImporter:
         y: 0
         width: 100
         height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68d041a2114d4704bb985f64a6148157
+      spriteID: bb5d5bc011f84c548b13232160b0694e
       internalID: -3855183037236299350
       vertices: []
       indices: 

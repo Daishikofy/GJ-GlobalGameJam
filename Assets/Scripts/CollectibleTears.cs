@@ -14,7 +14,7 @@ public class CollectibleTears : CollectibleItem
     protected override void onCollecting(PlayerController player)
     {
         Debug.Log("Colleting tear");
-        player.HealMeter = value;
+        player.HealMeter += value;
     }
 
     private void Update()

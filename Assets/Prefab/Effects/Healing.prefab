@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5296636394799563058}
   - component: {fileID: 7554075290626549099}
   - component: {fileID: 7093049959774255285}
+  - component: {fileID: -3153152225875267587}
   m_Layer: 0
   m_Name: Healing
   m_TagString: Untagged
@@ -102,3 +103,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-3153152225875267587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5059192678657207134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22b1de40022ca1242b385c9f4416b8ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 3
