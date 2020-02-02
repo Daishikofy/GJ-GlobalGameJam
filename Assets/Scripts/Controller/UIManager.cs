@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
     Image badKarma;
     [Space]
     [SerializeField]
-    TextMeshProUGUI life;
+    Image[] life;
     [SerializeField]
     TextMeshProUGUI level;
     [SerializeField]
@@ -46,7 +46,10 @@ public class UIManager : MonoBehaviour
     }
     private void updateLife(int value)
     {
-        life.text = "Life: " + value.ToString();
+        if (life[value].IsActive())
+            life[value + 1].enabled = false;
+        else
+            life[value].enabled = true;
     }
     private void updateKarma(int value)
     {

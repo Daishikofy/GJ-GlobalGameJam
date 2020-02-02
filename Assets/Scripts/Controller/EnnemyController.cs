@@ -16,6 +16,7 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
     int maxPoints;
     [SerializeField]
     int sadnessPoints;
+    int maxSadnesse;
     [SerializeField]
     float stopDistance;
     [SerializeField]
@@ -132,24 +133,31 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
         {
             //TODO: Add an effect to show life
             Color color = Color.white;
-            color.a = ((float)lifePoints / (float)maxPoints);
+            color.a = ((float)lifePoints / (float)maxSadnesse);
             renderer.color = color;
         }
     }
 
     public void onRepair(int value)
     {
-        SadnessPoints -= value;
+        Debug.Log("Entrou");
+        SadnessPoints = SadnessPoints - value;
         if (SadnessPoints < 0)
         {
             SadnessPoints = 0;
             isHealed();
+            Debug.Log("Is repaired");
         }
         else
         {
-            float scale = ((float)lifePoints / (float)maxPoints);
-            Vector3 size = new Vector3(scale, scale, 0);
-            this.transform.localScale = size;
+            
+            float scale = ((float)SadnessPoints / ((float)maxPoints*2))+0.5f;
+                Vector3 size = new Vector3(scale, scale, 0);
+                this.transform.localScale = size;
+
+            /*Color color = Color.white;
+            color.a = ((float)lifePoints / (float)maxPoints);
+            renderer.color = color;*/
         }
     }
 
@@ -203,7 +211,6 @@ public class EnnemyController : MonoBehaviour, IReaparable, IDamageable
         {
             if (canAttack)
             {
-                Debug.Log("Attacking the player!!");
                 collision.gameObject.GetComponent<IDamageable>().onDamage(power);
                 StartCoroutine(coolDownActionAttack(coolDown));
             }

@@ -152,21 +152,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f107b56361847940927995c68445f62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 10
-  speed: 5
+  maxLife: 5
+  speed: 3
   attackPower: 1
   attackCollider: {fileID: 3853744343021344995}
   healPower: 1
-  healLauchLevel: 5
+  healLauchLevel: 3
   healLunchNumber: 1
-  healRadius: 2
-  canHealAnimation: {fileID: 5059192678657207134, guid: de50558c035937241a9c0ecedb7bc731,
+  healRadius: 3
+  healingAnimation: {fileID: 1866021102747780032, guid: 593ef49a66f25a94ca07676624856006,
     type: 3}
   powerUpAnimation: {fileID: 2727256932963665178, guid: f5ea85ffcc7d6ac47811353f7379190a,
     type: 3}
-  canHealPicture: {fileID: 0}
-  healingAnimation: {fileID: 5059192678657207134, guid: de50558c035937241a9c0ecedb7bc731,
+  canHealAnimation: {fileID: 5059192678657207134, guid: de50558c035937241a9c0ecedb7bc731,
     type: 3}
+  canHealPicture: {fileID: 6378431244102743105}
   walking: []
   healingAttack: {fileID: 0}
   attackingAttack: {fileID: 0}

@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField]
     GameObject powerUpAnimation;
     [SerializeField]
+    GameObject canHealAnimation;
+    [SerializeField]
     GameObject canHealPicture;
 
     [Space]
@@ -97,7 +99,6 @@ public class PlayerController : MonoBehaviour, IDamageable
         get { return healMeter; }
         set
         {
-            Debug.Log("Heal meter: " + healMeter);
             healMeter = value;
             if (healMeter < 0) healMeter = 0;
             updateHealMeter.Invoke(healMeter);
@@ -105,7 +106,7 @@ public class PlayerController : MonoBehaviour, IDamageable
                 canHealPicture.SetActive(false);
             else if (!canHealPicture.activeSelf && (healMeter >= healLauchLevel))
             {
-                Instantiate(healingAnimation, new Vector3(0, 0.5f, 0), Quaternion.identity, this.transform);
+                Instantiate(canHealAnimation, new Vector3(0, 0.5f, 0), Quaternion.identity, this.transform);
                 canHealPicture.SetActive(true);
             }
         }        
@@ -219,8 +220,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         if (HealMeter < healLauchLevel) return;
         isAttacking = true;
         HealMeter -= healLauchLevel;
-        healingAnimation.SetActive(true);
-        //ANIMATION : Start healing animation, in the middle, activates collider and hurt ennemies
+        Instantiate(healingAnimation, this.transform);
         //SOUND : Healing attack sound
         //SoundManager.Instance.playSingle(healingAttack);
         if (isMoving)
@@ -327,23 +327,25 @@ public class PlayerController : MonoBehaviour, IDamageable
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(this.transform.position, healRadius);
     }
-    private void animationTriggeredHealing()
+    public void animationTriggeredHealing()
     {
-        Collider2D[] ennemies = Physics2D.OverlapCircleAll(this.transform.position, healRadius, 8);
-        Debug.Log("There are " + ennemies.Length + " ennemies in the circle");
-        foreach (var ennemy in ennemies)
+        Collider2D[] ennemies = Physics2D.OverlapCircleAll(this.transform.position, healRadius);
+        Debug.Log("There are " + ennemies.Length + " objects in the circle");
+        foreach (var thing in ennemies)
         {
-            ennemy.GetComponent<IReaparable>().onRepair(healPower);
-            var controller = ennemy.GetComponent<EnnemyController>();
-            //controller.isFree.RemoveAllListeners();
-            controller.isFree.RemoveListener(savedEnnemy);
-            controller.isFree.AddListener(savedEnnemy);
+            if (thing.CompareTag("Ennemy") && !thing.isTrigger)
+            {
+                Debug.Log("Ennemy");
+                thing.GetComponent<IReaparable>().onRepair(healPower);
+                var controller = thing.GetComponent<EnnemyController>();
+                controller.isFree.RemoveListener(savedEnnemy);
+                controller.isFree.AddListener(savedEnnemy);
+            }
         }
         isAttacking = false;
     }
     private void animationTriggeredAttacking()
     {
-        Debug.Log("TRIGGER");
         attackCollider.enabled = true;
         isAttacking = false;
     }

@@ -116,7 +116,7 @@ MonoBehaviour:
   power: 1
   coolDown: 2
   lifePoints: 3
-  sadnessPoints: 6
+  sadnessPoints: 3
   stopDistance: 1
   patrolCadence: 3
   searchField: {fileID: 1657724072293692984}

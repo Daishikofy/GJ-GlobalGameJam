@@ -12,7 +12,8 @@ public abstract class CollectibleItem : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {
+    {      
+        if (!collision.CompareTag("Player")) return;
         var player = collision.gameObject.GetComponent<PlayerController>();
         if (player != null)
         {
