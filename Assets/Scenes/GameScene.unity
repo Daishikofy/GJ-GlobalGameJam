@@ -595,7 +595,7 @@ GameObject:
   - component: {fileID: 676023338}
   - component: {fileID: 676023337}
   m_Layer: 0
-  m_Name: Up_Wall
+  m_Name: Up_Wall_Dungeon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1682,7 +1682,7 @@ GameObject:
   - component: {fileID: 1842420108}
   - component: {fileID: 1842420109}
   m_Layer: 0
-  m_Name: Floor
+  m_Name: Floor_Dungeon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1825,7 +1825,7 @@ GameObject:
   - component: {fileID: 1938129212}
   - component: {fileID: 1938129211}
   m_Layer: 0
-  m_Name: Down_Wall
+  m_Name: Down_Wall_Dungeon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
